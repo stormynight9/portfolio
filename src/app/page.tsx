@@ -2,7 +2,7 @@ import Header from '@/components/header'
 
 export default function Home() {
     return (
-        <main className='flex min-h-screen flex-col items-center justify-between p-24'>
+        <main className='mx-auto flex max-w-2xl flex-col items-center px-4 pt-4 md:pt-10'>
             <Header />
         </main>
     )

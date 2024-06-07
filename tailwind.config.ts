@@ -72,10 +72,31 @@ const config = {
                     from: { height: 'var(--radix-accordion-content-height)' },
                     to: { height: '0' },
                 },
+                'slide-from-down-and-fade': {
+                    '0%': {
+                        opacity: '0',
+                        transform: 'translateY(12px)',
+                        visibility: 'hidden',
+                    },
+                    '1%': { visibility: 'visible' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                },
             },
             animation: {
                 'accordion-down': 'accordion-down 0.2s ease-out',
                 'accordion-up': 'accordion-up 0.2s ease-out',
+                'slide-from-down-and-fade-1':
+                    'slide-from-down-and-fade 0.6s ease-in-out 0.1s both',
+                'slide-from-down-and-fade-2':
+                    'slide-from-down-and-fade 0.6s ease-in-out 0.2s both',
+                'slide-from-down-and-fade-3':
+                    'slide-from-down-and-fade 0.6s ease-in-out 0.3s both',
+                'slide-from-down-and-fade-4':
+                    'slide-from-down-and-fade 0.6s ease-in-out 0.4s both',
+                'slide-from-down-and-fade-5':
+                    'slide-from-down-and-fade 0.6s ease-in-out 0.5s both',
+                'slide-from-down-and-fade-6':
+                    'slide-from-down-and-fade 0.6s ease-in-out 0.6s both',
             },
         },
     },
