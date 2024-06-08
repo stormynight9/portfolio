@@ -50,7 +50,7 @@ export const CONFIG: Config = {
             <a
                 href='https://hi-interns.com/'
                 target='_blank'
-                className='whitespace-nowrap font-medium text-foreground'
+                className='deco whitespace-nowrap font-medium text-foreground underline decoration-muted-foreground underline-offset-2'
             >
                 Hi Interns
             </a>
