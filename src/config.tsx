@@ -9,6 +9,7 @@ type Config = {
         url: string
         icon: keyof typeof Icons
     }[]
+    description: string | JSX.Element
 }
 
 export const CONFIG: Config = {
@@ -37,4 +38,25 @@ export const CONFIG: Config = {
             icon: 'email',
         },
     ],
+    description: (
+        <>
+            Hi, I&apos;m Nader from Tunisia. I&apos;m currently a Full-stack
+            developer at{' '}
+            <a
+                href='https://hi-interns.com/'
+                target='_blank'
+                className='whitespace-nowrap font-medium text-foreground'
+            >
+                @hi-interns
+            </a>
+            . I love building websites with good UI/UX, and I&apos;m also
+            passionate about new technologies, open-source software, and
+            contributing to the community.
+            {/* TODO: Add this to contact form? */}
+            {/* <br />
+            <br />
+            Feel free to reach out if you want to collaborate on a project, have
+            a question, or just want to connect. */}
+        </>
+    ),
 }
