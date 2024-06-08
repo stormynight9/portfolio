@@ -33,6 +33,11 @@ export const CONFIG: Config = {
             icon: 'x',
         },
         {
+            name: 'Upwork',
+            url: 'https://www.upwork.com/freelancers/~0108a6d64ff5b64440',
+            icon: 'upwork',
+        },
+        {
             name: 'ferjani.nader@hotmail.fr',
             url: 'mailto:ferjani.nader@hotmail.fr',
             icon: 'email',
@@ -47,7 +52,7 @@ export const CONFIG: Config = {
                 target='_blank'
                 className='whitespace-nowrap font-medium text-foreground'
             >
-                @hi-interns
+                Hi Interns
             </a>
             . I love building websites with good UI/UX, and I&apos;m also
             passionate about new technologies, open-source software, and
