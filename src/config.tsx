@@ -14,7 +14,7 @@ type Config = {
 
 export const CONFIG: Config = {
     name: 'Nader Ferjani',
-    avatar: 'https://github.com/stormynight9.png',
+    avatar: 'https://avatars.githubusercontent.com/u/81434423?v=4',
     title: 'Software Engineer',
     socials: [
         {
