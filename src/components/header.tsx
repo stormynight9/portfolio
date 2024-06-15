@@ -14,7 +14,7 @@ import Image from 'next/image'
 
 const Header = () => {
     return (
-        <header className='animate-slide-from-down-and-fade-1 flex w-full flex-col gap-6'>
+        <header className='flex w-full animate-slide-from-down-and-fade-1 flex-col gap-6'>
             <div className='flex items-center justify-between'>
                 <div className='flex items-center gap-4'>
                     <Avatar className='size-14'>
@@ -53,7 +53,7 @@ const Header = () => {
                                             buttonVariants({
                                                 variant: 'outline',
                                             }),
-                                            'size-10 p-0 text-muted-foreground transition-colors duration-200 hover:text-foreground'
+                                            'size-10 bg-transparent p-0 text-muted-foreground transition-colors duration-200 hover:text-foreground'
                                         )}
                                     >
                                         {<Icon className='size-6' />}
@@ -61,7 +61,7 @@ const Header = () => {
                                 </TooltipTrigger>
                                 <TooltipContent
                                     side='bottom'
-                                    className='text-xs'
+                                    className='bg-transparent text-xs'
                                 >
                                     {social.name}
                                 </TooltipContent>

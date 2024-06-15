@@ -18,14 +18,14 @@ export function ModeToggle() {
             <DropdownMenuTrigger asChild>
                 <Button
                     variant='outline'
-                    className='size-10 p-0 text-muted-foreground transition-colors duration-200 hover:text-foreground'
+                    className='size-10 bg-transparent p-0 text-muted-foreground transition-colors duration-200 hover:text-foreground'
                 >
                     <Icons.sun className='size-[1.5rem] rotate-0 scale-100 dark:-rotate-90 dark:scale-0' />
                     <Icons.moon className='absolute size-[1.5rem] rotate-90 scale-0 dark:rotate-0 dark:scale-100' />
                     <span className='sr-only'>Toggle theme</span>
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align='end'>
+            <DropdownMenuContent align='end' className='bg-transparent'>
                 <DropdownMenuItem onClick={() => setTheme('light')}>
                     Light
                 </DropdownMenuItem>
