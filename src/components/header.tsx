@@ -24,6 +24,7 @@ const Header = () => {
                                 alt={CONFIG.name + ' avatar'}
                                 width={56}
                                 height={56}
+                                priority={true}
                             />
                         </AvatarImage>
                         <AvatarFallback>
