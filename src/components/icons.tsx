@@ -422,4 +422,110 @@ export const Icons = {
             />
         </svg>
     ),
+    gsonImageLabelizer: (props: LucideProps) => (
+        <svg
+            width={200}
+            height={200}
+            viewBox='-2.4 -2.4 28.8 28.8'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+            stroke='#000'
+            {...props}
+        >
+            <rect
+                x={-2.4}
+                y={-2.4}
+                width={28.8}
+                height={28.8}
+                rx={14.4}
+                fill='url(#b)'
+                stroke='none'
+            />
+            <path
+                d='M20 6H4m8-2v2M8.096 9.98c.479 1.574 1.412 4.118 4.048 6.414m0 0C13.726 17.773 15.92 19.062 19 20m-6.856-3.606C15.239 13.246 17.069 8.77 17.069 6m-4.925 10.394C10.21 18.36 7.784 19.808 5 20'
+                stroke='url(#a)'
+                strokeWidth={2}
+                strokeLinecap='round'
+                strokeLinejoin='round'
+            />
+            <defs>
+                <linearGradient id='a' x1='0%' x2='100%' y1='0%' y2='0%'>
+                    <stop offset='0%' stopColor='#94a3b8' />
+                    <stop offset='100%' stopColor='#f8fafc' />
+                </linearGradient>
+                <linearGradient id='b' x1='0%' x2='100%' y1='0%' y2='0%'>
+                    <stop offset='0%' stopColor='#020617' />
+                    <stop offset='100%' stopColor='#0f172a' />
+                </linearGradient>
+            </defs>
+        </svg>
+    ),
+    next: (props: LucideProps) => (
+        <svg
+            viewBox='0 0 512 512'
+            xmlns='http://www.w3.org/2000/svg'
+            fillRule='evenodd'
+            clipRule='evenodd'
+            strokeLinejoin='round'
+            strokeMiterlimit={2}
+            {...props}
+        >
+            <g transform='translate(.722 .64) scale(6.375)'>
+                <circle cx={40} cy={40} r={40} />
+                <path
+                    d='M66.448 70.009L30.73 24H24v31.987h5.384v-25.15l32.838 42.427a40.116 40.116 0 004.226-3.255z'
+                    fill='url(#prefix___Linear1)'
+                    fillRule='nonzero'
+                />
+                <path
+                    fill='url(#prefix___Linear2)'
+                    d='M51.111 24h5.333v32h-5.333z'
+                />
+            </g>
+            <defs>
+                <linearGradient
+                    id='prefix___Linear1'
+                    x1={0}
+                    y1={0}
+                    x2={1}
+                    y2={0}
+                    gradientUnits='userSpaceOnUse'
+                    gradientTransform='rotate(51.103 -29.93 76.555) scale(25.1269)'
+                >
+                    <stop offset={0} stopColor='#fff' />
+                    <stop offset={1} stopColor='#fff' stopOpacity={0} />
+                </linearGradient>
+                <linearGradient
+                    id='prefix___Linear2'
+                    x1={0}
+                    y1={0}
+                    x2={1}
+                    y2={0}
+                    gradientUnits='userSpaceOnUse'
+                    gradientTransform='rotate(90.218 14.934 38.787) scale(23.50017)'
+                >
+                    <stop offset={0} stopColor='#fff' />
+                    <stop offset={1} stopColor='#fff' stopOpacity={0} />
+                </linearGradient>
+            </defs>
+        </svg>
+    ),
+    graphQL: (props: LucideProps) => (
+        <svg
+            xmlns='http://www.w3.org/2000/svg'
+            height={64}
+            width={64}
+            viewBox='0 0 29.999 30'
+            fill='#e10098'
+            {...props}
+        >
+            <path d='M4.08 22.864l-1.1-.636L15.248.98l1.1.636z' />
+            <path d='M2.727 20.53h24.538v1.272H2.727z' />
+            <path d='M15.486 28.332L3.213 21.246l.636-1.1 12.273 7.086zm10.662-18.47L13.874 2.777l.636-1.1 12.273 7.086z' />
+            <path d='M3.852 9.858l-.636-1.1L15.5 1.67l.636 1.1z' />
+            <path d='M25.922 22.864l-12.27-21.25 1.1-.636 12.27 21.25zM3.7 7.914h1.272v14.172H3.7zm21.328 0H26.3v14.172h-1.272z' />
+            <path d='M15.27 27.793l-.555-.962 10.675-6.163.555.962z' />
+            <path d='M27.985 22.5a2.68 2.68 0 01-3.654.981 2.68 2.68 0 01-.981-3.654 2.68 2.68 0 013.654-.981 2.665 2.665 0 01.98 3.654M6.642 10.174a2.68 2.68 0 01-3.654.981A2.68 2.68 0 012.007 7.5a2.68 2.68 0 013.654-.981 2.68 2.68 0 01.981 3.654M2.015 22.5a2.68 2.68 0 01.981-3.654 2.68 2.68 0 013.654.981 2.68 2.68 0 01-.981 3.654c-1.287.735-2.92.3-3.654-.98m21.343-12.326a2.68 2.68 0 01.981-3.654 2.68 2.68 0 013.654.981 2.68 2.68 0 01-.981 3.654 2.68 2.68 0 01-3.654-.981M15 30a2.674 2.674 0 112.674-2.673A2.68 2.68 0 0115 30m0-24.652a2.67 2.67 0 01-2.674-2.674 2.67 2.67 0 115.347 0A2.67 2.67 0 0115 5.347' />
+        </svg>
+    ),
 }

@@ -120,11 +120,41 @@ export const CONFIG: Config = {
             url: 'https://cosmiccoop.net/',
             tags: [
                 { name: 'Remix', icon: 'remix' },
+                { name: 'TypeScript', icon: 'typescript' },
                 { name: 'Tailwind CSS', icon: 'tailwindcss' },
                 { name: 'shadcn/ui', icon: 'shadcn' },
             ],
             featured: true,
             github: 'https://github.com/stormynight9/saasstellar',
+        },
+        {
+            name: 'gson-image-labelizer',
+            icon: 'gsonImageLabelizer',
+            description:
+                'A tool that helps you label images and save them in local storage.',
+            url: 'https://gson-image-labelizer.vercel.app/',
+            tags: [
+                { name: 'Next', icon: 'next' },
+                { name: 'TypeScript', icon: 'typescript' },
+                { name: 'Tailwind CSS', icon: 'tailwindcss' },
+                { name: 'shadcn/ui', icon: 'shadcn' },
+            ],
+            featured: false,
+            github: 'https://github.com/stormynight9/gson-image-labelizer',
+        },
+        {
+            name: 'Ranmovanigen',
+            image: '/images/ranmovanigen.png',
+            description:
+                'A Website that uses Anilist API to generate a random anime movie and show its information and trailer.',
+            url: 'https://ranmovanigen.web.app/',
+            featured: false,
+            tags: [
+                { name: 'React', icon: 'react' },
+                { name: 'Tailwind CSS', icon: 'tailwindcss' },
+                { name: 'GraphQL', icon: 'graphQL' },
+            ],
+            github: 'https://github.com/stormynight9/random-anime-movie-generator',
         },
     ],
 }

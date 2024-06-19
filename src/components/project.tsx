@@ -39,7 +39,7 @@ const Project = ({
 }: ProjectProps) => {
     const Icon = Icons[icon!]
     return (
-        <Card className='group rounded-none border-none bg-accent/60 from-neutral-800/10 p-4 dark:bg-neutral-900 dark:hover:bg-gradient-to-bl md:rounded-lg'>
+        <Card className='group rounded-none border-none bg-accent/60 from-neutral-800/10 p-4 dark:bg-neutral-900 dark:hover:bg-gradient-to-bl sm:rounded-lg'>
             <div className='flex flex-col gap-2'>
                 <div className='flex items-start justify-between'>
                     <div className='flex items-start gap-2'>

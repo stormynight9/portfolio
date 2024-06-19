@@ -1,10 +1,12 @@
 import Header from '@/components/header'
 import Project from '@/components/project'
+import { Button } from '@/components/ui/button'
 import { CONFIG } from '@/config'
+import Link from 'next/link'
 
 export default function Home() {
     return (
-        <main className='mx-auto flex max-w-2xl flex-col gap-8 pt-4 md:pt-10'>
+        <div className='flex flex-col gap-8'>
             <Header />
             <div className='animate-slide-from-down-and-fade-2 space-y-2 px-4'>
                 <h2 className='font-semibold'>About me</h2>
@@ -12,7 +14,7 @@ export default function Home() {
                     {CONFIG.description}
                 </p>
             </div>
-            <div className='animate-slide-from-down-and-fade-3 space-y-3'>
+            <div className='flex animate-slide-from-down-and-fade-3 flex-col gap-3'>
                 <h2 className='px-4 font-semibold'>Featured Projects</h2>
                 {CONFIG.projects
                     .filter((project) => project.featured)
@@ -29,7 +31,14 @@ export default function Home() {
                             github={project.github}
                         />
                     ))}
+                <Button
+                    asChild
+                    className='ml-auto text-muted-foreground underline hover:text-foreground'
+                    variant={'link'}
+                >
+                    <Link href='/projects'>All projects</Link>
+                </Button>
             </div>
-        </main>
+        </div>
     )
 }
