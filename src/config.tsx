@@ -10,11 +10,25 @@ type Config = {
         icon: keyof typeof Icons
     }[]
     description: string | JSX.Element
+    projects: {
+        name: string
+        icon?: keyof typeof Icons
+        image?: string
+        description: string
+        url: string
+        tags: {
+            name: string
+            icon: keyof typeof Icons
+        }[]
+        github?: string
+        featured: boolean
+        testimonial?: string
+    }[]
 }
 
 export const CONFIG: Config = {
     name: 'Nader Ferjani',
-    avatar: 'https://avatars.githubusercontent.com/u/81434423?v=4',
+    avatar: '/images/author.jpg',
     title: 'Software Engineer',
     socials: [
         {
@@ -64,4 +78,53 @@ export const CONFIG: Config = {
             a question, or just want to connect. */}
         </>
     ),
+    projects: [
+        {
+            name: 'Hi Interns',
+            icon: 'hiInterns',
+            description:
+                'A platform that connects companies with students who are looking for internships.',
+            url: 'https://hi-interns.com/',
+            tags: [
+                { name: 'Astro', icon: 'astro' },
+                { name: 'React', icon: 'react' },
+                { name: 'TypeScript', icon: 'typescript' },
+                { name: 'Tailwind CSS', icon: 'tailwindcss' },
+                { name: 'Algolia', icon: 'algolia' },
+                { name: 'Remix', icon: 'remix' },
+                { name: 'Clerk', icon: 'clerk' },
+                { name: 'Drizzle', icon: 'drizzle' },
+            ],
+            featured: true,
+        },
+        {
+            name: 'Cosmic Coop',
+            image: '/images/cosmic-coop.webp',
+            description:
+                'A website that provides information about the Cosmic Coop game.',
+            url: 'https://cosmiccoop.net/',
+            tags: [
+                { name: 'Astro', icon: 'astro' },
+                { name: 'Preact', icon: 'preact' },
+                { name: 'Tailwind CSS', icon: 'tailwindcss' },
+            ],
+            featured: true,
+            testimonial:
+                'Nader was absolutely amazing with the work he did for me. He truly went above and beyond and was super clear, efficient, and very knowledgeable. He thought about pretty much everything related to the project and even thought outside the box to create solutions to any issues. Truly a 10/10 hire. One of my best hired on Upwork. Will definitely be rehiring on future projects.',
+        },
+        {
+            name: 'SaaSStellar',
+            icon: 'saasStellar',
+            description:
+                'A modern SaaS landing page template with 12 themes, designed to collect emails for a waitlist.',
+            url: 'https://cosmiccoop.net/',
+            tags: [
+                { name: 'Remix', icon: 'remix' },
+                { name: 'Tailwind CSS', icon: 'tailwindcss' },
+                { name: 'shadcn/ui', icon: 'shadcn' },
+            ],
+            featured: true,
+            github: 'https://github.com/stormynight9/saasstellar',
+        },
+    ],
 }

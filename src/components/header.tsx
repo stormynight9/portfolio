@@ -14,7 +14,7 @@ import Image from 'next/image'
 
 const Header = () => {
     return (
-        <header className='flex w-full animate-slide-from-down-and-fade-1 flex-col gap-6'>
+        <header className='flex w-full animate-slide-from-down-and-fade-1 flex-col gap-6 px-4'>
             <div className='flex items-center justify-between'>
                 <div className='flex items-center gap-4'>
                     <Avatar className='size-14'>
@@ -56,7 +56,7 @@ const Header = () => {
                                             'size-10 bg-transparent p-0 text-muted-foreground transition-colors duration-200 hover:text-foreground'
                                         )}
                                     >
-                                        {<Icon className='size-6' />}
+                                        <Icon className='size-6' />
                                     </a>
                                 </TooltipTrigger>
                                 <TooltipContent
