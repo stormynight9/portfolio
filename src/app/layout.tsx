@@ -2,6 +2,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { CONFIG } from '@/config'
 import { cn } from '@/lib/utils'
 import { HighlightInit } from '@highlight-run/next/client'
+import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import { Inter as FontSans } from 'next/font/google'
 import './globals.css'
@@ -45,6 +46,7 @@ export default function RootLayout({
                     fontSans.variable
                 )}
             >
+                <Analytics />
                 <ThemeProvider
                     attribute='class'
                     defaultTheme='dark'
