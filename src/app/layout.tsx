@@ -6,6 +6,7 @@ import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import { Inter as FontSans } from 'next/font/google'
 import './globals.css'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const fontSans = FontSans({
     subsets: ['latin'],
@@ -21,7 +22,6 @@ export const metadata: Metadata = {
     description: CONFIG.descriptionRaw,
 }
 
-
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -29,36 +29,43 @@ export default function RootLayout({
 }>) {
     return (
         <>
-        <HighlightInit
-				projectId={'ng2wmv0g'}
-				serviceName="my-nextjs-frontend"
-				tracingOrigins
-				networkRecording={{
-					enabled: true,
-					recordHeadersAndBody: true,
-					urlBlocklist: [],
-				}}
-			/>
-        <html lang='en' suppressHydrationWarning>
-            <body
-                className={cn(
-                    'min-h-screen bg-background from-[#43434330] via-[#32323230] via-25% font-sans antialiased dark:bg-gradient-to-b',
-                    fontSans.variable
-                )}
-            >
-                <Analytics />
-                <ThemeProvider
-                    attribute='class'
-                    defaultTheme='dark'
-                    enableSystem
-                    disableTransitionOnChange
+            <HighlightInit
+                projectId={'ng2wmv0g'}
+                serviceName='my-nextjs-frontend'
+                tracingOrigins
+                networkRecording={{
+                    enabled: true,
+                    recordHeadersAndBody: true,
+                    urlBlocklist: [],
+                }}
+            />
+            <html lang='en' suppressHydrationWarning>
+                <head>
+                    <meta
+                        name='google-site-verification'
+                        content='XHmdUcuWsYlxmeP5Ih572cth_N7tXqYKFhaCV33wE78'
+                    />
+                </head>
+                <body
+                    className={cn(
+                        'min-h-screen bg-background from-[#43434330] via-[#32323230] via-25% font-sans antialiased dark:bg-gradient-to-b',
+                        fontSans.variable
+                    )}
                 >
-                    <main className='mx-auto max-w-2xl py-4 md:pt-10'>
-                        {children}
-                    </main>
-                </ThemeProvider>
-            </body>
-        </html>
+                    <GoogleAnalytics gaId='G-32FLEBL3F6' />
+                    <Analytics />
+                    <ThemeProvider
+                        attribute='class'
+                        defaultTheme='dark'
+                        enableSystem
+                        disableTransitionOnChange
+                    >
+                        <main className='mx-auto max-w-2xl py-4 md:pt-10'>
+                            {children}
+                        </main>
+                    </ThemeProvider>
+                </body>
+            </html>
         </>
     )
 }
