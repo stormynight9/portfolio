@@ -1,9 +1,10 @@
-import { CONFIG } from '@/config'
-import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
+import { CONFIG } from '@/config'
 import { cn } from '@/lib/utils'
+import { HighlightInit } from '@highlight-run/next/client'
 import type { Metadata } from 'next'
 import { Inter as FontSans } from 'next/font/google'
+import './globals.css'
 
 const fontSans = FontSans({
     subsets: ['latin'],
@@ -19,12 +20,24 @@ export const metadata: Metadata = {
     description: CONFIG.descriptionRaw,
 }
 
+
 export default function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode
 }>) {
     return (
+        <>
+        <HighlightInit
+				projectId={'ng2wmv0g'}
+				serviceName="my-nextjs-frontend"
+				tracingOrigins
+				networkRecording={{
+					enabled: true,
+					recordHeadersAndBody: true,
+					urlBlocklist: [],
+				}}
+			/>
         <html lang='en' suppressHydrationWarning>
             <body
                 className={cn(
@@ -44,5 +57,6 @@ export default function RootLayout({
                 </ThemeProvider>
             </body>
         </html>
+        </>
     )
 }
