@@ -11,6 +11,10 @@ import {
 import { CONFIG } from '@/config'
 import Link from 'next/link'
 
+export const metadata = {
+    title: 'Projects',
+}
+
 const Projects = () => {
     return (
         <div>

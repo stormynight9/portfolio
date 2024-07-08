@@ -4,12 +4,14 @@ type Config = {
     name: string
     avatar: string
     title: string
+    siteUrl: string
     socials: {
         name: string
         url: string
         icon: keyof typeof Icons
     }[]
     description: string | JSX.Element
+    descriptionRaw: string
     projects: {
         name: string
         icon?: keyof typeof Icons
@@ -30,6 +32,7 @@ export const CONFIG: Config = {
     name: 'Nader Ferjani',
     avatar: '/images/author.jpg',
     title: 'Software Engineer',
+    siteUrl: 'https://naderferjani.vercel.app/',
     socials: [
         {
             name: 'GitHub',
@@ -78,6 +81,7 @@ export const CONFIG: Config = {
             a question, or just want to connect. */}
         </>
     ),
+    descriptionRaw: `Hi, I'm Nader from Tunisia. I'm currently a Full-stack developer at Hi Interns. I love building websites with good UI/UX, and I'm also passionate about new technologies, open-source software, and contributing to the community.`,
     projects: [
         {
             name: 'Hi Interns',
