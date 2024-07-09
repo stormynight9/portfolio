@@ -26,6 +26,15 @@ type Config = {
         featured: boolean
         testimonial?: string
     }[]
+    openSource?: {
+        description?: string
+        projects?: {
+            repository: string
+            description: string | JSX.Element
+            title: string
+            link: string
+        }[]
+    }
 }
 
 export const CONFIG: Config = {
@@ -67,9 +76,10 @@ export const CONFIG: Config = {
             <a
                 href='https://hi-interns.com/'
                 target='_blank'
-                className='deco whitespace-nowrap font-medium text-foreground underline decoration-muted-foreground underline-offset-2'
+                className='whitespace-nowrap font-medium text-foreground underline decoration-muted-foreground underline-offset-2'
             >
                 Hi Interns
+                <Icons.arrowUpRight className='inline-block size-4' />
             </a>
             . I love building websites with good UI/UX, and I&apos;m also
             passionate about new technologies, open-source software, and
@@ -161,4 +171,47 @@ export const CONFIG: Config = {
             github: 'https://github.com/stormynight9/random-anime-movie-generator',
         },
     ],
+    openSource: {
+        description:
+            'I have contributed to various open-source projects, including Astro, TailwindCSS, shadcn/ui, and more. I also made a few open-source projects that did benefit the community.',
+        projects: [
+            {
+                repository: 'stormynight9/clerk-shadcn-theme',
+                description: (
+                    <>
+                        A theme for Clerk components that syncs with any
+                        shadcn/ui configuration. Got excited when I had my first{' '}
+                        <a
+                            href='https://github.com/stormynight9/clerk-shadcn-theme/issues?q='
+                            target='_blank'
+                            className='deco whitespace-nowrap font-medium text-foreground underline decoration-muted-foreground underline-offset-2'
+                        >
+                            issue
+                            <Icons.arrowUpRight className='inline-block size-4' />
+                        </a>{' '}
+                        and{' '}
+                        <a
+                            href='https://github.com/stormynight9/clerk-shadcn-theme/pulls?q='
+                            target='_blank'
+                            className='deco whitespace-nowrap font-medium text-foreground underline decoration-muted-foreground underline-offset-2'
+                        >
+                            PR
+                            <Icons.arrowUpRight className='inline-block size-4' />
+                        </a>{' '}
+                        from the community!
+                    </>
+                ),
+
+                title: 'clerk-shadcn-theme',
+                link: 'https://www.github.com/stormynight9/clerk-shadcn-theme',
+            },
+            {
+                repository: 'stormynight9/saasstellar',
+                description:
+                    'A modern SaaS landing page template with 12 themes, designed to collect emails for a waitlist. I made this when Linear-like websites were trending so I made one too.',
+                title: 'SaaSStellar',
+                link: 'https://www.github.com/stormynight9/saasstellar',
+            },
+        ],
+    },
 }

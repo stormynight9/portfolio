@@ -1,12 +1,15 @@
 import Header from '@/components/header'
+import { Icons } from '@/components/icons'
+import OpenSource from '@/components/open-source'
 import Project from '@/components/project'
 import { Button } from '@/components/ui/button'
 import { CONFIG } from '@/config'
 import Link from 'next/link'
+import { Suspense } from 'react'
 
 export default function Home() {
     return (
-        <div className='flex flex-col gap-8'>
+        <div className='flex flex-col gap-12'>
             <Header />
             <div className='animate-slide-from-down-and-fade-2 space-y-2 px-4'>
                 <h2 className='font-semibold'>About me</h2>
@@ -36,9 +39,17 @@ export default function Home() {
                     className='ml-auto text-muted-foreground underline hover:text-foreground'
                     variant={'link'}
                 >
-                    <Link href='/projects'>All projects</Link>
+                    <Link href='/projects'>
+                        All projects
+                        <Icons.arrowUpRight className='inline-block size-4' />
+                    </Link>
                 </Button>
             </div>
+            <Suspense
+                fallback={<div className='text-white'>Loading charts...</div>}
+            >
+                <OpenSource />
+            </Suspense>
         </div>
     )
 }
