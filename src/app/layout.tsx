@@ -29,16 +29,18 @@ export default function RootLayout({
 }>) {
     return (
         <>
-            <HighlightInit
-                projectId={'ng2wmv0g'}
-                serviceName='my-nextjs-frontend'
-                tracingOrigins
-                networkRecording={{
-                    enabled: true,
-                    recordHeadersAndBody: true,
-                    urlBlocklist: [],
-                }}
-            />
+            {process.env.NODE_ENV === 'production' && (
+                <HighlightInit
+                    projectId={'ng2wmv0g'}
+                    serviceName='my-nextjs-frontend'
+                    tracingOrigins
+                    networkRecording={{
+                        enabled: true,
+                        recordHeadersAndBody: true,
+                        urlBlocklist: [],
+                    }}
+                />
+            )}
             <html lang='en' suppressHydrationWarning>
                 <head>
                     <meta
@@ -52,7 +54,9 @@ export default function RootLayout({
                         fontSans.variable
                     )}
                 >
-                    <GoogleAnalytics gaId='G-32FLEBL3F6' />
+                    {process.env.NODE_ENV === 'production' && (
+                        <GoogleAnalytics gaId='G-32FLEBL3F6' />
+                    )}
                     <Analytics />
                     <ThemeProvider
                         attribute='class'
