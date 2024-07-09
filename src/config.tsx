@@ -131,7 +131,7 @@ export const CONFIG: Config = {
             icon: 'saasStellar',
             description:
                 'A modern SaaS landing page template with 12 themes, designed to collect emails for a waitlist.',
-            url: 'https://cosmiccoop.net/',
+            url: 'https://saasstellar.nader.run/',
             tags: [
                 { name: 'Remix', icon: 'remix' },
                 { name: 'TypeScript', icon: 'typescript' },
