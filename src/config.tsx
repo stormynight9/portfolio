@@ -146,7 +146,7 @@ export const CONFIG: Config = {
             icon: 'gsonImageLabelizer',
             description:
                 'A tool that helps you label images and save them in local storage.',
-            url: 'https://gson-image-labelizer.vercel.app/',
+            url: 'https://gson.nader.run/',
             tags: [
                 { name: 'Next', icon: 'next' },
                 { name: 'TypeScript', icon: 'typescript' },
