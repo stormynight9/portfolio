@@ -41,7 +41,7 @@ export const CONFIG: Config = {
     name: 'Nader Ferjani',
     avatar: '/images/author.jpg',
     title: 'Software Engineer',
-    siteUrl: 'https://naderferjani.vercel.app/',
+    siteUrl: 'https://nader.run/',
     socials: [
         {
             name: 'GitHub',
