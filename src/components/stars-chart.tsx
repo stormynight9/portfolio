@@ -51,8 +51,8 @@ export const StarsChart = ({
             <CardHeader className='px-0'>
                 <div className='flex justify-between'>
                     <div>
-                        <CardTitle className=''>{title}</CardTitle>
-                        <CardDescription className='text-base'>
+                        <CardTitle className='text-base'>{title}</CardTitle>
+                        <CardDescription className='text-sm'>
                             {description}
                         </CardDescription>
                     </div>
