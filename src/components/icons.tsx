@@ -1,4 +1,10 @@
-import { ArrowUpRight, ExternalLink, LucideProps, Sun } from 'lucide-react'
+import {
+    ArrowUpRight,
+    ExternalLink,
+    LucideProps,
+    Star,
+    Sun,
+} from 'lucide-react'
 
 export const Icons = {
     github: (props: LucideProps) => (
@@ -529,4 +535,5 @@ export const Icons = {
         </svg>
     ),
     arrowUpRight: ArrowUpRight,
+    star: Star,
 }

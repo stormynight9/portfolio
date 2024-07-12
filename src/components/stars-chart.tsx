@@ -23,6 +23,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from '@/components/ui/tooltip'
+import { Star } from 'lucide-react'
 import Link from 'next/link'
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from 'recharts'
 
@@ -51,8 +52,10 @@ export const StarsChart = ({
             <CardHeader className='px-0'>
                 <div className='flex justify-between'>
                     <div>
-                        <CardTitle className='text-base'>{title}</CardTitle>
-                        <CardDescription className='text-sm'>
+                        <CardTitle className='text-base hover:underline'>
+                            {title}
+                        </CardTitle>
+                        <CardDescription className='text-base'>
                             {description}
                         </CardDescription>
                     </div>
@@ -83,13 +86,16 @@ export const StarsChart = ({
                 </div>
             </CardHeader>
             <CardContent className='px-0 pb-2'>
-                <ChartContainer config={chartConfig}>
+                <ChartContainer
+                    config={chartConfig}
+                    className='aspect-auto h-72'
+                >
                     <AreaChart
                         accessibilityLayer
                         data={data}
                         margin={{
                             left: -30,
-                            right: 12,
+                            right: 4,
                         }}
                     >
                         <CartesianGrid vertical={false} />
@@ -136,17 +142,19 @@ export const StarsChart = ({
                             dataKey='count'
                             type='monotone'
                             fill='url(#count)'
-                            fillOpacity={0.4}
+                            fillOpacity={0.15}
                             stroke='var(--color-count)'
                             stackId='a'
+                            dot={{ fillOpacity: 1, fill: 'var(--color-count)' }}
                         />
                     </AreaChart>
                 </ChartContainer>
             </CardContent>
-            <CardFooter className='justify-center px-0 pb-0 md:pb-6'>
-                <p className='text-sm text-muted-foreground'>
-                    Showing the stars count of this repository since its
-                    creation
+            <CardFooter className='items-center justify-between gap-4 px-0 pb-0 text-sm leading-3 text-muted-foreground md:pb-6'>
+                <p>Star count of this repository since creation</p>
+                <p className='flex items-center gap-1'>
+                    <span>{data.at(-1)?.count}</span>
+                    <Icons.star className='inline-block size-3.5' />
                 </p>
             </CardFooter>
         </Card>
