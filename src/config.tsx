@@ -71,8 +71,8 @@ export const CONFIG: Config = {
     ],
     description: (
         <>
-            Hi, I&apos;m Nader from Tunisia. I&apos;m currently a Full-stack
-            developer at{' '}
+            Hi, I&apos;m Nader from Tunisia. I work as a part-time Full-stack
+            Developer at{' '}
             <a
                 href='https://hi-interns.com/'
                 target='_blank'
@@ -91,7 +91,7 @@ export const CONFIG: Config = {
             a question, or just want to connect. */}
         </>
     ),
-    descriptionRaw: `Hi, I'm Nader from Tunisia. I'm currently a Full-stack developer at Hi Interns. I love building websites with good UI/UX, and I'm also passionate about new technologies, open-source software, and contributing to the community.`,
+    descriptionRaw: `Hi, I'm Nader from Tunisia.  I work as a part-time Full-stack Developer at Hi Interns. I love building websites with good UI/UX, and I'm also passionate about new technologies, open-source software, and contributing to the community.`,
     projects: [
         {
             name: 'Hi Interns',
