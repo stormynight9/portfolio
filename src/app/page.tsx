@@ -13,7 +13,7 @@ export default function Home() {
             <Header />
             <div className='animate-slide-from-down-and-fade-2 space-y-2 px-4'>
                 <h2 className='font-semibold'>About me</h2>
-                <p className='text-sm leading-6 text-muted-foreground'>
+                <p className='leading-6 text-muted-foreground'>
                     {CONFIG.description}
                 </p>
             </div>
@@ -36,7 +36,7 @@ export default function Home() {
                     ))}
                 <Button
                     asChild
-                    className='ml-auto text-muted-foreground underline hover:text-foreground'
+                    className='ml-auto items-end text-muted-foreground underline hover:text-foreground'
                     variant={'link'}
                 >
                     <Link href='/projects'>

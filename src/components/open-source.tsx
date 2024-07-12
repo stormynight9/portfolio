@@ -1,6 +1,5 @@
 import { StarsChart } from '@/components/stars-chart'
 import { CONFIG } from '@/config'
-import { Suspense } from 'react'
 
 interface RepoDetails {
     stargazers_count: number
@@ -96,7 +95,7 @@ const OpenSource = async () => {
     return (
         <div className='animate-slide-from-down-and-fade-2 space-y-2 px-4'>
             <h2 className='font-semibold'>Open source journey</h2>
-            <p className='text-sm text-muted-foreground'>
+            <p className='text-muted-foreground'>
                 {CONFIG.openSource?.description}
             </p>
 
