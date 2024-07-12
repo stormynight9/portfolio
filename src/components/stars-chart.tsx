@@ -23,13 +23,12 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from '@/components/ui/tooltip'
-import { Star } from 'lucide-react'
 import Link from 'next/link'
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from 'recharts'
 
 const chartConfig = {
     count: {
-        label: 'Count',
+        label: 'Stars',
         color: 'hsl(var(--chart-1))',
     },
 } satisfies ChartConfig
@@ -76,7 +75,7 @@ export const StarsChart = ({
                                 </TooltipTrigger>
                                 <TooltipContent
                                     side='bottom'
-                                    className='bg-transparent text-xs'
+                                    className='text-xs'
                                 >
                                     Visit Repository
                                 </TooltipContent>
