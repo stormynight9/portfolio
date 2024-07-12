@@ -11,6 +11,7 @@ import {
 import { CONFIG } from '@/config'
 import { cn, getInitials } from '@/lib/utils'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Header = () => {
     return (
@@ -47,18 +48,18 @@ const Header = () => {
                         return (
                             <Tooltip key={idx}>
                                 <TooltipTrigger>
-                                    <a
+                                    <Link
                                         href={social.url}
                                         target='_blank'
                                         className={cn(
                                             buttonVariants({
                                                 variant: 'outline',
                                             }),
-                                            'size-10 bg-transparent p-0 text-muted-foreground transition-colors duration-200 hover:text-foreground'
+                                            'size-8 bg-transparent p-0 text-muted-foreground transition-colors duration-200 hover:text-foreground md:size-10'
                                         )}
                                     >
-                                        <Icon className='size-6' />
-                                    </a>
+                                        <Icon className='size-5 md:size-6' />
+                                    </Link>
                                 </TooltipTrigger>
                                 <TooltipContent
                                     side='bottom'
@@ -69,6 +70,31 @@ const Header = () => {
                             </Tooltip>
                         )
                     })}
+                    {CONFIG.calendarLink && (
+                        <Tooltip>
+                            <TooltipTrigger>
+                                <Link
+                                    href={'https://cal.com/naderferjani/15'}
+                                    target='_blank'
+                                    className={cn(
+                                        buttonVariants({
+                                            variant: 'outline',
+                                            size: 'sm',
+                                        }),
+                                        'bg-transparent text-xs text-muted-foreground transition-colors duration-200 hover:text-foreground md:text-sm'
+                                    )}
+                                >
+                                    Schedule a call
+                                </Link>
+                            </TooltipTrigger>
+                            <TooltipContent
+                                side='bottom'
+                                className='bg-transparent text-xs'
+                            >
+                                {'Cal.com'}
+                            </TooltipContent>
+                        </Tooltip>
+                    )}
                 </TooltipProvider>
             </div>
         </header>

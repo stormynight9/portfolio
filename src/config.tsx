@@ -10,6 +10,7 @@ type Config = {
         url: string
         icon: keyof typeof Icons
     }[]
+    calendarLink?: string
     description: string | JSX.Element
     descriptionRaw: string
     projects: {
@@ -69,6 +70,7 @@ export const CONFIG: Config = {
             icon: 'email',
         },
     ],
+    calendarLink: 'https://cal.com/naderferjani/15',
     description: (
         <>
             Hi, I&apos;m Nader from Tunisia. I work as a part-time Full-stack
