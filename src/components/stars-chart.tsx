@@ -150,7 +150,7 @@ export const StarsChart = ({
                 </ChartContainer>
             </CardContent>
             <CardFooter className='items-center justify-between gap-4 px-0 pb-0 text-sm leading-3 text-muted-foreground md:pb-6'>
-                <p>Star count of this repository since creation</p>
+                <p>Repository star count since creation</p>
                 <p className='flex items-center gap-1'>
                     <span>{data.at(-1)?.count}</span>
                     <Icons.star className='inline-block size-3.5' />
