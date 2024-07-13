@@ -84,14 +84,14 @@ const Header = () => {
                                         'bg-transparent text-xs text-muted-foreground transition-colors duration-200 hover:text-foreground md:text-sm'
                                     )}
                                 >
-                                    Schedule a call
+                                    Schedule call
                                 </Link>
                             </TooltipTrigger>
                             <TooltipContent
                                 side='bottom'
                                 className='bg-transparent text-xs'
                             >
-                                {'Cal.com'}
+                                {'cal.com'}
                             </TooltipContent>
                         </Tooltip>
                     )}

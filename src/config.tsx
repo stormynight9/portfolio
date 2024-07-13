@@ -86,11 +86,6 @@ export const CONFIG: Config = {
             . I love building websites with good UI/UX, and I&apos;m also
             passionate about new technologies, open-source software, and
             contributing to the community.
-            {/* TODO: Add this to contact form? */}
-            {/* <br />
-            <br />
-            Feel free to reach out if you want to collaborate on a project, have
-            a question, or just want to connect. */}
         </>
     ),
     descriptionRaw: `Hi, I'm Nader from Tunisia.  I work as a part-time Full-stack Developer at Hi Interns. I love building websites with good UI/UX, and I'm also passionate about new technologies, open-source software, and contributing to the community.`,

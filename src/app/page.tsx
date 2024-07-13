@@ -1,3 +1,4 @@
+import Contact from '@/components/contact'
 import Header from '@/components/header'
 import { Icons } from '@/components/icons'
 import OpenSource from '@/components/open-source'
@@ -5,7 +6,6 @@ import Project from '@/components/project'
 import { Button } from '@/components/ui/button'
 import { CONFIG } from '@/config'
 import Link from 'next/link'
-import { Suspense } from 'react'
 
 export default function Home() {
     return (
@@ -45,11 +45,9 @@ export default function Home() {
                     </Link>
                 </Button>
             </div>
-            <Suspense
-                fallback={<div className='text-white'>Loading charts...</div>}
-            >
-                <OpenSource />
-            </Suspense>
+
+            <OpenSource />
+            <Contact />
         </div>
     )
 }
