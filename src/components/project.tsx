@@ -1,17 +1,17 @@
 import { Icons } from '@/components/icons'
+import { ReadMore } from '@/components/read-more'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
-import { ReadMore } from './read-more'
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
-} from './ui/tooltip'
+} from '@/components/ui/tooltip'
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
 
 interface ProjectProps {
     name: string
@@ -67,7 +67,7 @@ const Project = ({
                             <TooltipProvider delayDuration={70}>
                                 {github && (
                                     <Tooltip>
-                                        <TooltipTrigger>
+                                        <TooltipTrigger asChild>
                                             <Button
                                                 asChild
                                                 size={'icon'}
@@ -77,6 +77,7 @@ const Project = ({
                                                 <Link
                                                     href={github}
                                                     target='_blank'
+                                                    aria-label='Github'
                                                 >
                                                     <Icons.github className='size-4' />
                                                 </Link>
@@ -91,14 +92,18 @@ const Project = ({
                                     </Tooltip>
                                 )}
                                 <Tooltip>
-                                    <TooltipTrigger>
+                                    <TooltipTrigger asChild>
                                         <Button
                                             asChild
                                             size={'icon'}
                                             variant={'ghost'}
                                             className='shrink-0'
                                         >
-                                            <Link href={url} target='_blank'>
+                                            <Link
+                                                href={url}
+                                                target='_blank'
+                                                aria-label='Visit Website'
+                                            >
                                                 <Icons.externalLink className='size-4' />
                                             </Link>
                                         </Button>

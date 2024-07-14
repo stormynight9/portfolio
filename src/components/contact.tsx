@@ -25,10 +25,11 @@ const Contact = () => {
                             const Icon = Icons[social.icon]
                             return (
                                 <Tooltip key={idx}>
-                                    <TooltipTrigger>
+                                    <TooltipTrigger asChild>
                                         <Link
                                             href={social.url}
                                             target='_blank'
+                                            aria-label={social.name}
                                             className={cn(
                                                 buttonVariants({
                                                     variant: 'secondary',
@@ -55,7 +56,7 @@ const Contact = () => {
                                 Or we can schedule a call directly
                             </p>
                             <Tooltip>
-                                <TooltipTrigger>
+                                <TooltipTrigger asChild>
                                     <Link
                                         href={'https://cal.com/naderferjani/15'}
                                         target='_blank'

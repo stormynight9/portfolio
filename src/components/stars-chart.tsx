@@ -61,14 +61,18 @@ export const StarsChart = ({
                     <div>
                         <TooltipProvider delayDuration={70}>
                             <Tooltip>
-                                <TooltipTrigger>
+                                <TooltipTrigger asChild>
                                     <Button
                                         asChild
                                         size={'icon'}
                                         variant={'ghost'}
                                         className='shrink-0'
                                     >
-                                        <Link href={link} target='_blank'>
+                                        <Link
+                                            href={link}
+                                            target='_blank'
+                                            aria-label='Visit Repository'
+                                        >
                                             <Icons.externalLink className='size-4' />
                                         </Link>
                                     </Button>
