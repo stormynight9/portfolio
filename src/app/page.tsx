@@ -1,4 +1,3 @@
-import Contact from '@/components/contact'
 import Header from '@/components/header'
 import { Icons } from '@/components/icons'
 import OpenSource from '@/components/open-source'
@@ -47,7 +46,6 @@ export default function Home() {
             </div>
 
             <OpenSource />
-            <Contact />
         </div>
     )
 }

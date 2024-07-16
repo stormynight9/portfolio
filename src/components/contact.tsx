@@ -12,7 +12,7 @@ import {
 
 const Contact = () => {
     return (
-        <footer className='px-4 pb-20'>
+        <footer className='mt-12 px-4 pb-20'>
             <h2 className='font-semibold'>Get in touch</h2>
             <p className='leading-6 text-muted-foreground'>
                 Feel free to reach out if you want to collaborate on a project,

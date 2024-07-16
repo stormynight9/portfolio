@@ -6,6 +6,7 @@ import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import { Inter as FontSans } from 'next/font/google'
 import './globals.css'
+import Contact from '@/components/contact'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 const fontSans = FontSans({
@@ -66,6 +67,7 @@ export default function RootLayout({
                     >
                         <main className='mx-auto max-w-2xl py-4 md:pt-10'>
                             {children}
+                            <Contact />
                         </main>
                     </ThemeProvider>
                 </body>
