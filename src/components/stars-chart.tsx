@@ -105,8 +105,8 @@ export const StarsChart = ({
                         <YAxis
                             tickLine={false}
                             axisLine={false}
-                            tickMargin={8}
-                            tickCount={3}
+                            tickMargin={5}
+                            tickCount={4}
                         />
                         <XAxis
                             dataKey='month'
@@ -154,7 +154,7 @@ export const StarsChart = ({
                 </ChartContainer>
             </CardContent>
             <CardFooter className='items-center justify-between gap-4 px-0 pb-0 text-sm leading-3 text-muted-foreground md:pb-6'>
-                <p>Repository star count since creation</p>
+                <p className='pl-2'>Repository star count since creation</p>
                 <p className='flex items-center gap-1'>
                     <span>{data.at(-1)?.count}</span>
                     <Icons.star className='inline-block size-3.5' />
