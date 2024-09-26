@@ -99,6 +99,7 @@ export const StarsChart = ({
                         margin={{
                             left: -30,
                             right: 4,
+                            top: 4,
                         }}
                     >
                         <CartesianGrid vertical={false} />
