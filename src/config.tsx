@@ -139,6 +139,23 @@ export const CONFIG: Config = {
             github: 'https://github.com/stormynight9/saasstellar',
         },
         {
+            name: 'Purng',
+            icon: 'purng',
+            description:
+                'A progressive daily pushup challenge that increases throughout the year. Track your progress and join others in building strength consistently.',
+            url: 'https://purng.nader.run/',
+            tags: [
+                { name: 'Next', icon: 'next' },
+                { name: 'TypeScript', icon: 'typescript' },
+                { name: 'Tailwind CSS', icon: 'tailwindcss' },
+                { name: 'shadcn/ui', icon: 'shadcn' },
+                { name: 'Drizzle', icon: 'drizzle' },
+                { name: 'Neon', icon: 'neon' },
+            ],
+            featured: false,
+            github: 'https://github.com/stormynight9/purng',
+        },
+        {
             name: 'gson-image-labelizer',
             icon: 'gsonImageLabelizer',
             description:
