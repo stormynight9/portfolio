@@ -39,7 +39,7 @@ const Project = ({
 }: ProjectProps) => {
     const Icon = Icons[icon!]
     return (
-        <Card className='group rounded-none border-none bg-accent/60 from-neutral-800/10 p-4 dark:bg-neutral-900 dark:hover:bg-linear-to-bl sm:rounded-lg'>
+        <Card className='group bg-accent/60 rounded-none border-none from-neutral-800/10 p-4 sm:rounded-lg dark:bg-neutral-900 dark:hover:bg-linear-to-bl'>
             <div className='flex flex-col gap-2'>
                 <div className='flex items-start justify-between'>
                     <div className='flex items-start gap-2'>
@@ -57,7 +57,7 @@ const Project = ({
                         )}
                         <div>
                             <h3>{name}</h3>
-                            <p className='text-sm text-muted-foreground'>
+                            <p className='text-muted-foreground text-sm'>
                                 {description}
                             </p>
                         </div>
@@ -128,7 +128,6 @@ const Project = ({
                                 return (
                                     <li key={idx}>
                                         <Badge variant={'outline'}>
-                                            <Icon className='mr-1.5 h-3 w-3 transition-all group-hover:saturate-100 md:saturate-0' />{' '}
                                             {tag.name}
                                         </Badge>
                                     </li>
@@ -138,7 +137,7 @@ const Project = ({
                     )}
                 </div>
                 {testimonial && (
-                    <blockquote className='border-l-2 pl-6 text-sm italic text-muted-foreground'>
+                    <blockquote className='text-muted-foreground border-l-2 pl-6 text-sm italic'>
                         <ReadMore text={testimonial} id='d' />
                     </blockquote>
                 )}

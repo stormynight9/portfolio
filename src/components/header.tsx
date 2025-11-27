@@ -15,7 +15,7 @@ import Link from 'next/link'
 
 const Header = () => {
     return (
-        <header className='flex w-full animate-slide-from-down-and-fade-1 flex-col gap-6 px-4'>
+        <header className='animate-slide-from-down-and-fade-1 flex w-full flex-col gap-6 px-4'>
             <div className='flex items-center justify-between'>
                 <div className='flex items-center gap-4'>
                     <Avatar className='size-14'>
@@ -34,7 +34,7 @@ const Header = () => {
                     </Avatar>
                     <div>
                         <h1 className='font-semibold'>{CONFIG.name}</h1>
-                        <p className='mt-0.5 text-sm text-muted-foreground'>
+                        <p className='text-muted-foreground mt-0.5 text-sm'>
                             {CONFIG.title}
                         </p>
                     </div>
@@ -55,11 +55,11 @@ const Header = () => {
                                         className={cn(
                                             buttonVariants({
                                                 variant: 'outline',
-                                            }),
-                                            'size-8 bg-transparent p-0 text-muted-foreground transition-colors duration-200 hover:text-foreground md:size-10'
+                                                size: 'icon-sm',
+                                            })
                                         )}
                                     >
-                                        <Icon className='size-5 md:size-6' />
+                                        <Icon />
                                     </Link>
                                 </TooltipTrigger>
                                 <TooltipContent
@@ -82,8 +82,7 @@ const Header = () => {
                                         buttonVariants({
                                             variant: 'outline',
                                             size: 'sm',
-                                        }),
-                                        'bg-transparent text-xs text-muted-foreground transition-colors duration-200 hover:text-foreground md:text-sm'
+                                        })
                                     )}
                                 >
                                     Schedule call
