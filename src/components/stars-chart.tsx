@@ -24,12 +24,13 @@ import {
     TooltipTrigger,
 } from '@/components/ui/tooltip'
 import Link from 'next/link'
+import type { JSX } from 'react'
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from 'recharts'
 
 const chartConfig = {
     count: {
         label: 'Stars',
-        color: 'hsl(var(--chart-1))',
+        color: 'var(--primary)',
     },
 } satisfies ChartConfig
 
@@ -154,7 +155,7 @@ export const StarsChart = ({
                     </AreaChart>
                 </ChartContainer>
             </CardContent>
-            <CardFooter className='items-center justify-between gap-4 px-0 pb-0 text-sm leading-3 text-muted-foreground md:pb-6'>
+            <CardFooter className='text-muted-foreground items-center justify-between gap-4 px-0 pb-0 text-sm leading-3 md:pb-6'>
                 <p className='pl-2'>Repository star count since creation</p>
                 <p className='flex items-center gap-1'>
                     <span>{data.at(-1)?.count}</span>

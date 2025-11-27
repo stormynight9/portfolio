@@ -9,13 +9,19 @@ interface Stargazer {
     starred_at: string
 }
 
+const fetchOptions = {
+    headers: {
+        Accept: 'application/vnd.github.v3.star+json',
+        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+    },
+    next: { revalidate: 3600 },
+} as const
+
 async function getStargazersCount(repo: string): Promise<number> {
-    const url = `https://api.github.com/repos/${repo}`
-    const response = await fetch(url, {
-        headers: {
-            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-        },
-    })
+    const response = await fetch(
+        `https://api.github.com/repos/${repo}`,
+        fetchOptions
+    )
     const data: RepoDetails = await response.json()
     return data.stargazers_count
 }
@@ -25,35 +31,29 @@ async function fetchStargazersPage(
     page: number
 ): Promise<Stargazer[]> {
     const url = `https://api.github.com/repos/${repo}/stargazers?per_page=100&page=${page}`
-    const response = await fetch(url, {
-        headers: {
-            Accept: 'application/vnd.github.v3.star+json',
-            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-        },
-    })
-    const data: Stargazer[] = await response.json()
-    return data
+    const response = await fetch(url, fetchOptions)
+    return response.json()
 }
 
 async function getAllStargazers(repo: string): Promise<string[]> {
     const stargazersCount = await getStargazersCount(repo)
     const totalPages = Math.ceil(stargazersCount / 100)
-    let allStarredAtDates: string[] = []
 
-    for (let page = 1; page <= totalPages; page++) {
-        const stargazers = await fetchStargazersPage(repo, page)
-        const starredAtDates = stargazers.map(
-            (stargazer) => stargazer.starred_at
+    // Fetch all pages in parallel
+    const pages = await Promise.all(
+        Array.from({ length: totalPages }, (_, i) =>
+            fetchStargazersPage(repo, i + 1)
         )
-        allStarredAtDates = allStarredAtDates.concat(starredAtDates)
-    }
+    )
 
-    return allStarredAtDates
+    return pages.flat().map((s) => s.starred_at)
 }
+
 type TransformedEntry = {
     month: string
     count: number
 }
+
 export const transformData = (timestamps: string[]): TransformedEntry[] => {
     const monthNames = [
         'Jan',
@@ -70,7 +70,7 @@ export const transformData = (timestamps: string[]): TransformedEntry[] => {
         'Dec',
     ]
     const lastEntries: { [key: string]: number } = {}
-    let lastIndexForMonth: { [key: string]: number } = {}
+    const lastIndexForMonth: { [key: string]: number } = {}
 
     timestamps.forEach((timestamp, index) => {
         const date = new Date(timestamp)
@@ -92,6 +92,18 @@ export const transformData = (timestamps: string[]): TransformedEntry[] => {
 }
 
 const OpenSource = async () => {
+    // Resolve all project data before rendering
+    const projectsData = await Promise.all(
+        CONFIG.openSource?.projects?.map(async (project) => ({
+            ...project,
+            chartData: transformData(
+                await getAllStargazers(project.repository)
+            ),
+        })) ?? []
+    )
+
+    console.log(projectsData)
+
     return (
         <div className='animate-slide-from-down-and-fade-2 space-y-2 px-4'>
             <h2 className='font-semibold'>Open source journey</h2>
@@ -100,12 +112,10 @@ const OpenSource = async () => {
             </p>
 
             <div className='divide-y divide-solid'>
-                {CONFIG.openSource?.projects?.map(async (project, idx) => (
+                {projectsData.map((project, idx) => (
                     <div key={idx} className='py-4'>
                         <StarsChart
-                            data={transformData(
-                                await getAllStargazers(project.repository)
-                            )}
+                            data={project.chartData}
                             title={project.title}
                             description={project.description}
                             link={project.link}

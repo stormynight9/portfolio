@@ -1,5 +1,7 @@
 import { Icons } from '@/components/icons'
 
+import type { JSX } from "react";
+
 type Config = {
     name: string
     avatar: string
