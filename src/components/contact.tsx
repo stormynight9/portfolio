@@ -32,18 +32,15 @@ const Contact = () => {
                                             aria-label={social.name}
                                             className={cn(
                                                 buttonVariants({
-                                                    variant: 'secondary',
-                                                }),
-                                                'text-muted-foreground hover:text-foreground size-8 bg-transparent p-0 transition-colors duration-200 md:size-10'
+                                                    variant: 'ghost',
+                                                    size: 'icon-sm',
+                                                })
                                             )}
                                         >
-                                            <Icon className='size-5 md:size-6' />
+                                            <Icon className='size-4 md:size-5' />
                                         </Link>
                                     </TooltipTrigger>
-                                    <TooltipContent
-                                        side='bottom'
-                                        className='text-xs'
-                                    >
+                                    <TooltipContent>
                                         {social.name}
                                     </TooltipContent>
                                 </Tooltip>
@@ -62,21 +59,15 @@ const Contact = () => {
                                         target='_blank'
                                         className={cn(
                                             buttonVariants({
-                                                variant: 'outline',
-                                                size: 'sm',
-                                            }),
-                                            'text-muted-foreground hover:text-foreground text-xs transition-colors duration-200 md:text-sm'
+                                                variant: 'ghost',
+                                                size: 'icon-sm',
+                                            })
                                         )}
                                     >
                                         Book a call
                                     </Link>
                                 </TooltipTrigger>
-                                <TooltipContent
-                                    side='bottom'
-                                    className='text-xs'
-                                >
-                                    {'cal.com'}
-                                </TooltipContent>
+                                <TooltipContent>cal.com</TooltipContent>
                             </Tooltip>
                         </>
                     )}

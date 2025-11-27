@@ -51,7 +51,7 @@ export default function RootLayout({
                 </head>
                 <body
                     className={cn(
-                        'min-h-screen bg-background from-[#43434330] via-[#32323230] via-25% font-sans antialiased dark:bg-linear-to-b',
+                        'bg-background min-h-screen from-[#43434330] via-[#32323230] via-25% font-sans antialiased dark:bg-linear-to-b',
                         fontSans.variable
                     )}
                 >
@@ -65,7 +65,7 @@ export default function RootLayout({
                         enableSystem
                         disableTransitionOnChange
                     >
-                        <main className='mx-auto max-w-2xl py-4 md:pt-10'>
+                        <main className='mx-auto max-w-3xl py-4 md:pt-10'>
                             {children}
                             <Contact />
                         </main>

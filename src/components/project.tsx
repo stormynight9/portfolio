@@ -39,20 +39,18 @@ const Project = ({
 }: ProjectProps) => {
     const Icon = Icons[icon!]
     return (
-        <Card className='group bg-accent/60 rounded-none border-none from-neutral-800/10 p-4 sm:rounded-lg dark:bg-neutral-900 dark:hover:bg-linear-to-bl'>
+        <div className='rounded-none border-none p-4 sm:rounded-lg'>
             <div className='flex flex-col gap-2'>
                 <div className='flex items-start justify-between'>
                     <div className='flex items-start gap-2'>
-                        {icon && (
-                            <Icon className='h-12 w-12 shrink-0 transition-all group-hover:saturate-100 md:saturate-0' />
-                        )}
+                        {icon && <Icon className='h-12 w-12 shrink-0' />}
                         {image && (
                             <Image
                                 src={image}
                                 width={64}
                                 height={64}
                                 alt='fds'
-                                className='h-12 w-auto shrink-0 transition-all group-hover:saturate-100 md:saturate-0'
+                                className='h-12 w-auto shrink-0'
                             />
                         )}
                         <div>
@@ -70,7 +68,7 @@ const Project = ({
                                         <TooltipTrigger asChild>
                                             <Button
                                                 asChild
-                                                size={'icon'}
+                                                size='icon-sm'
                                                 variant={'ghost'}
                                                 className='shrink-0'
                                             >
@@ -83,10 +81,7 @@ const Project = ({
                                                 </Link>
                                             </Button>
                                         </TooltipTrigger>
-                                        <TooltipContent
-                                            side='bottom'
-                                            className='bg-transparent text-xs'
-                                        >
+                                        <TooltipContent>
                                             Source Code
                                         </TooltipContent>
                                     </Tooltip>
@@ -95,7 +90,7 @@ const Project = ({
                                     <TooltipTrigger asChild>
                                         <Button
                                             asChild
-                                            size={'icon'}
+                                            size='icon-sm'
                                             variant={'ghost'}
                                             className='shrink-0'
                                         >
@@ -108,10 +103,7 @@ const Project = ({
                                             </Link>
                                         </Button>
                                     </TooltipTrigger>
-                                    <TooltipContent
-                                        side='bottom'
-                                        className='bg-transparent text-xs'
-                                    >
+                                    <TooltipContent>
                                         Visit Website
                                     </TooltipContent>
                                 </Tooltip>
@@ -142,7 +134,7 @@ const Project = ({
                     </blockquote>
                 )}
             </div>
-        </Card>
+        </div>
     )
 }
 

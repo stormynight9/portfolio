@@ -1,5 +1,6 @@
 import {
     ArrowUpRight,
+    Check,
     ExternalLink,
     LucideProps,
     Star,
@@ -536,6 +537,7 @@ export const Icons = {
     ),
     arrowUpRight: ArrowUpRight,
     star: Star,
+    check: Check,
     purng: (props: LucideProps) => (
         <svg viewBox='0 0 128 128' {...props}>
             <linearGradient

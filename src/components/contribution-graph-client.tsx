@@ -24,8 +24,8 @@ export const ContributionGraphClient = ({
         <ContributionGraph
             data={data}
             totalCount={totalCount}
-            blockSize={11}
-            blockMargin={1}
+            blockSize={11.5}
+            blockMargin={2.25}
             fontSize={12}
             labels={{
                 totalCount: '{{count}} contributions in {{year}}',

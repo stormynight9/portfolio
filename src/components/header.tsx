@@ -1,3 +1,5 @@
+'use client'
+
 import { Icons } from '@/components/icons'
 import { ModeToggle } from '@/components/mode-toggle'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
@@ -12,8 +14,43 @@ import { CONFIG } from '@/config'
 import { cn, getInitials } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 const Header = () => {
+    const [copiedEmail, setCopiedEmail] = useState(false)
+    const [emailTooltipOpen, setEmailTooltipOpen] = useState(false)
+
+    // Extract email from socials
+    const emailSocial = CONFIG.socials.find((social) => social.icon === 'email')
+    const emailAddress = emailSocial?.url.replace('mailto:', '') || ''
+
+    useEffect(() => {
+        if (copiedEmail) {
+            setEmailTooltipOpen(true)
+            const timer = setTimeout(() => {
+                setEmailTooltipOpen(false)
+            }, 2500)
+            const timer2 = setTimeout(() => {
+                setCopiedEmail(false)
+            }, 2800)
+            return () => {
+                clearTimeout(timer)
+                clearTimeout(timer2)
+            }
+        }
+    }, [copiedEmail])
+
+    const handleEmailClick = async (e: React.MouseEvent) => {
+        e.preventDefault()
+        try {
+            await navigator.clipboard.writeText(emailAddress)
+            setCopiedEmail(true)
+            setEmailTooltipOpen(true)
+        } catch (err) {
+            console.error('Failed to copy email:', err)
+        }
+    }
+
     return (
         <header className='animate-slide-from-down-and-fade-1 flex w-full flex-col gap-6 px-4'>
             <div className='flex items-center justify-between'>
@@ -45,28 +82,69 @@ const Header = () => {
                 <TooltipProvider delayDuration={70}>
                     {CONFIG.socials.map((social, idx) => {
                         const Icon = Icons[social.icon]
+                        const isEmail = social.icon === 'email'
+                        const showCheck = isEmail && copiedEmail
+                        const CheckIcon = Icons.check
+
                         return (
-                            <Tooltip key={idx}>
+                            <Tooltip
+                                key={idx}
+                                open={
+                                    isEmail && copiedEmail
+                                        ? emailTooltipOpen
+                                        : undefined
+                                }
+                                onOpenChange={(open) => {
+                                    if (isEmail) {
+                                        // Keep tooltip open if email is copied
+                                        if (copiedEmail && !open) {
+                                            return
+                                        }
+                                        // Only control state when copied, otherwise let it behave normally
+                                        if (copiedEmail) {
+                                            setEmailTooltipOpen(open)
+                                        }
+                                    }
+                                }}
+                            >
                                 <TooltipTrigger asChild>
-                                    <Link
-                                        href={social.url}
-                                        target='_blank'
-                                        aria-label={social.name}
-                                        className={cn(
-                                            buttonVariants({
-                                                variant: 'outline',
-                                                size: 'icon-sm',
-                                            })
-                                        )}
-                                    >
-                                        <Icon />
-                                    </Link>
+                                    {isEmail ? (
+                                        <button
+                                            onClick={handleEmailClick}
+                                            aria-label={social.name}
+                                            className={cn(
+                                                buttonVariants({
+                                                    variant: 'outline',
+                                                    size: 'icon-sm',
+                                                })
+                                            )}
+                                        >
+                                            {showCheck ? (
+                                                <CheckIcon />
+                                            ) : (
+                                                <Icon />
+                                            )}
+                                        </button>
+                                    ) : (
+                                        <Link
+                                            href={social.url}
+                                            target='_blank'
+                                            aria-label={social.name}
+                                            className={cn(
+                                                buttonVariants({
+                                                    variant: 'outline',
+                                                    size: 'icon-sm',
+                                                })
+                                            )}
+                                        >
+                                            <Icon />
+                                        </Link>
+                                    )}
                                 </TooltipTrigger>
-                                <TooltipContent
-                                    side='bottom'
-                                    className='bg-transparent text-xs'
-                                >
-                                    {social.name}
+                                <TooltipContent>
+                                    {isEmail && copiedEmail
+                                        ? 'Copied'
+                                        : social.name}
                                 </TooltipContent>
                             </Tooltip>
                         )
@@ -88,12 +166,7 @@ const Header = () => {
                                     Book a call
                                 </Link>
                             </TooltipTrigger>
-                            <TooltipContent
-                                side='bottom'
-                                className='bg-transparent text-xs'
-                            >
-                                {'cal.com'}
-                            </TooltipContent>
+                            <TooltipContent>cal.com</TooltipContent>
                         </Tooltip>
                     )}
                 </TooltipProvider>

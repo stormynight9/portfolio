@@ -4,8 +4,10 @@ import { Icons } from '@/components/icons'
 import OpenSource from '@/components/open-source'
 import Project from '@/components/project'
 import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
 import { CONFIG } from '@/config'
 import Link from 'next/link'
+import React from 'react'
 
 export default function Home() {
     return (
@@ -21,18 +23,22 @@ export default function Home() {
                 <h2 className='px-4 font-semibold'>Featured Projects</h2>
                 {CONFIG.projects
                     .filter((project) => project.featured)
-                    .map((project, idx) => (
-                        <Project
-                            key={idx}
-                            name={project.name}
-                            icon={project.icon}
-                            description={project.description}
-                            image={project.image}
-                            url={project.url}
-                            tags={project.tags}
-                            testimonial={project.testimonial}
-                            github={project.github}
-                        />
+                    .map((project, idx, array) => (
+                        <React.Fragment key={idx}>
+                            <Project
+                                name={project.name}
+                                icon={project.icon}
+                                description={project.description}
+                                image={project.image}
+                                url={project.url}
+                                tags={project.tags}
+                                testimonial={project.testimonial}
+                                github={project.github}
+                            />
+                            {idx < array.length - 1 && (
+                                <Separator className='mx-auto max-w-36' />
+                            )}
+                        </React.Fragment>
                     ))}
                 <Button
                     asChild
