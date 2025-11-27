@@ -14,7 +14,7 @@ const Contact = () => {
     return (
         <footer className='mt-12 px-4 pb-20'>
             <h2 className='font-semibold'>Get in touch</h2>
-            <p className='leading-6 text-muted-foreground'>
+            <p className='text-muted-foreground leading-6'>
                 Feel free to reach out if you want to collaborate on a project,
                 have a question, or just want to connect.
             </p>
@@ -34,7 +34,7 @@ const Contact = () => {
                                                 buttonVariants({
                                                     variant: 'secondary',
                                                 }),
-                                                'size-8 bg-transparent p-0 text-muted-foreground transition-colors duration-200 hover:text-foreground md:size-10'
+                                                'text-muted-foreground hover:text-foreground size-8 bg-transparent p-0 transition-colors duration-200 md:size-10'
                                             )}
                                         >
                                             <Icon className='size-5 md:size-6' />
@@ -52,8 +52,8 @@ const Contact = () => {
                     </div>
                     {CONFIG.calendarLink && (
                         <>
-                            <p className='text-sm text-muted-foreground'>
-                                Or we can schedule a call directly
+                            <p className='text-muted-foreground text-sm'>
+                                Or we can book a call directly
                             </p>
                             <Tooltip>
                                 <TooltipTrigger asChild>
@@ -65,10 +65,10 @@ const Contact = () => {
                                                 variant: 'outline',
                                                 size: 'sm',
                                             }),
-                                            'text-xs text-muted-foreground transition-colors duration-200 hover:text-foreground md:text-sm'
+                                            'text-muted-foreground hover:text-foreground text-xs transition-colors duration-200 md:text-sm'
                                         )}
                                     >
-                                        Schedule call
+                                        Book a call
                                     </Link>
                                 </TooltipTrigger>
                                 <TooltipContent

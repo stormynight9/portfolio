@@ -1,11 +1,11 @@
 import { Icons } from '@/components/icons'
-
-import type { JSX } from "react";
+import type { JSX } from 'react'
 
 type Config = {
     name: string
     avatar: string
     title: string
+    githubUsername: string
     siteUrl: string
     socials: {
         name: string
@@ -44,6 +44,7 @@ export const CONFIG: Config = {
     name: 'Nader Ferjani',
     avatar: '/images/author.jpg',
     title: 'Software Engineer',
+    githubUsername: 'stormynight9',
     siteUrl: 'https://nader.run/',
     socials: [
         {
@@ -80,7 +81,7 @@ export const CONFIG: Config = {
             <a
                 href='https://hi-interns.com/'
                 target='_blank'
-                className='whitespace-nowrap font-medium text-foreground underline decoration-muted-foreground underline-offset-2'
+                className='text-foreground decoration-muted-foreground font-medium whitespace-nowrap underline underline-offset-2'
             >
                 Hi Interns
                 <Icons.arrowUpRight className='inline-block size-4' />
@@ -200,7 +201,7 @@ export const CONFIG: Config = {
                         <a
                             href='https://github.com/stormynight9/clerk-shadcn-theme/issues?q='
                             target='_blank'
-                            className='deco whitespace-nowrap font-medium text-foreground underline decoration-muted-foreground underline-offset-2'
+                            className='deco text-foreground decoration-muted-foreground font-medium whitespace-nowrap underline underline-offset-2'
                         >
                             issue
                             <Icons.arrowUpRight className='inline-block size-4' />
@@ -209,7 +210,7 @@ export const CONFIG: Config = {
                         <a
                             href='https://github.com/stormynight9/clerk-shadcn-theme/pulls?q='
                             target='_blank'
-                            className='deco whitespace-nowrap font-medium text-foreground underline decoration-muted-foreground underline-offset-2'
+                            className='deco text-foreground decoration-muted-foreground font-medium whitespace-nowrap underline underline-offset-2'
                         >
                             PR
                             <Icons.arrowUpRight className='inline-block size-4' />

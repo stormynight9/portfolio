@@ -77,7 +77,7 @@ const Header = () => {
                                 <Link
                                     href={'https://cal.com/naderferjani/15'}
                                     target='_blank'
-                                    aria-label='Schedule a call'
+                                    aria-label='Book a call'
                                     className={cn(
                                         buttonVariants({
                                             variant: 'outline',
@@ -85,7 +85,7 @@ const Header = () => {
                                         })
                                     )}
                                 >
-                                    Schedule call
+                                    Book a call
                                 </Link>
                             </TooltipTrigger>
                             <TooltipContent

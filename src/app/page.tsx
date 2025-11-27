@@ -1,3 +1,4 @@
+import GitHubContributions from '@/components/github-contributions'
 import Header from '@/components/header'
 import { Icons } from '@/components/icons'
 import OpenSource from '@/components/open-source'
@@ -12,11 +13,11 @@ export default function Home() {
             <Header />
             <div className='animate-slide-from-down-and-fade-2 space-y-2 px-4'>
                 <h2 className='font-semibold'>About me</h2>
-                <p className='leading-6 text-muted-foreground'>
+                <p className='text-muted-foreground leading-6'>
                     {CONFIG.description}
                 </p>
             </div>
-            <div className='flex animate-slide-from-down-and-fade-3 flex-col gap-3'>
+            <div className='animate-slide-from-down-and-fade-3 flex flex-col gap-3'>
                 <h2 className='px-4 font-semibold'>Featured Projects</h2>
                 {CONFIG.projects
                     .filter((project) => project.featured)
@@ -35,7 +36,7 @@ export default function Home() {
                     ))}
                 <Button
                     asChild
-                    className='ml-auto items-end text-muted-foreground underline hover:text-foreground'
+                    className='text-muted-foreground hover:text-foreground ml-auto items-end underline'
                     variant={'link'}
                 >
                     <Link href='/projects'>
@@ -46,6 +47,8 @@ export default function Home() {
             </div>
 
             <OpenSource />
+
+            <GitHubContributions />
         </div>
     )
 }
