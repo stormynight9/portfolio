@@ -55,13 +55,13 @@ const Header = () => {
         <header className='animate-slide-from-down-and-fade-1 flex w-full flex-col gap-6 px-4'>
             <div className='flex items-center justify-between'>
                 <div className='flex items-center gap-4'>
-                    <Avatar className='size-14'>
+                    <Avatar className='size-20'>
                         <AvatarImage src={CONFIG.avatar} asChild>
                             <Image
                                 src={CONFIG.avatar}
                                 alt={CONFIG.name + ' avatar'}
-                                width={56}
-                                height={56}
+                                width={80}
+                                height={80}
                                 priority={true}
                             />
                         </AvatarImage>

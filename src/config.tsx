@@ -23,7 +23,7 @@ type Config = {
         url: string
         tags: {
             name: string
-            icon: keyof typeof Icons
+            icon?: keyof typeof Icons
         }[]
         github?: string
         featured: boolean
@@ -95,19 +95,18 @@ export const CONFIG: Config = {
     projects: [
         {
             name: 'Hi Interns',
-            icon: 'hiInterns',
+            image: '/images/hi-interns.png',
             description:
                 'A platform that connects companies with students who are looking for internships.',
             url: 'https://hi-interns.com/',
             tags: [
                 { name: 'Astro', icon: 'astro' },
-                { name: 'React', icon: 'react' },
+                { name: 'Next.js', icon: 'next' },
+                { name: 'Supabase' },
                 { name: 'TypeScript', icon: 'typescript' },
                 { name: 'Tailwind CSS', icon: 'tailwindcss' },
+                { name: 'shadcn/ui', icon: 'shadcn' },
                 { name: 'Algolia', icon: 'algolia' },
-                { name: 'Remix', icon: 'remix' },
-                { name: 'Clerk', icon: 'clerk' },
-                { name: 'Drizzle', icon: 'drizzle' },
             ],
             featured: true,
         },
@@ -148,7 +147,7 @@ export const CONFIG: Config = {
                 'A progressive daily pushup challenge that increases throughout the year. Track your progress and join others in building strength consistently.',
             url: 'https://purng.nader.run/',
             tags: [
-                { name: 'Next', icon: 'next' },
+                { name: 'Next.js', icon: 'next' },
                 { name: 'TypeScript', icon: 'typescript' },
                 { name: 'Tailwind CSS', icon: 'tailwindcss' },
                 { name: 'shadcn/ui', icon: 'shadcn' },
@@ -165,7 +164,7 @@ export const CONFIG: Config = {
                 'A tool that helps you label images and save them in local storage.',
             url: 'https://gson.nader.run/',
             tags: [
-                { name: 'Next', icon: 'next' },
+                { name: 'Next.js', icon: 'next' },
                 { name: 'TypeScript', icon: 'typescript' },
                 { name: 'Tailwind CSS', icon: 'tailwindcss' },
                 { name: 'shadcn/ui', icon: 'shadcn' },

@@ -19,8 +19,8 @@ export default function Home() {
                     {CONFIG.description}
                 </p>
             </div>
-            <div className='animate-slide-from-down-and-fade-3 flex flex-col gap-3'>
-                <h2 className='px-4 font-semibold'>Featured Projects</h2>
+            <div className='animate-slide-from-down-and-fade-3 flex flex-col gap-7'>
+                <h2 className='-mb-4 px-4 font-semibold'>Featured Projects</h2>
                 {CONFIG.projects
                     .filter((project) => project.featured)
                     .map((project, idx, array) => (
@@ -36,7 +36,7 @@ export default function Home() {
                                 github={project.github}
                             />
                             {idx < array.length - 1 && (
-                                <Separator className='mx-auto max-w-36' />
+                                <Separator className='mx-auto max-w-96' />
                             )}
                         </React.Fragment>
                     ))}

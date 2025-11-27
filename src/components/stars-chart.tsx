@@ -52,7 +52,7 @@ export const StarsChart = ({
             <CardHeader className='px-0'>
                 <div className='flex justify-between'>
                     <div>
-                        <CardTitle className='text-base hover:underline'>
+                        <CardTitle className='mb-2 text-base hover:underline'>
                             {title}
                         </CardTitle>
                         <CardDescription className='text-base'>

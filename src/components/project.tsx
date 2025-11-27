@@ -21,7 +21,7 @@ interface ProjectProps {
     url: string
     tags: {
         name: string
-        icon: keyof typeof Icons
+        icon?: keyof typeof Icons
     }[]
     testimonial?: string
     github?: string
@@ -42,7 +42,7 @@ const Project = ({
         <div className='rounded-none border-none p-4 sm:rounded-lg'>
             <div className='flex flex-col gap-2'>
                 <div className='flex items-start justify-between'>
-                    <div className='flex items-start gap-2'>
+                    <div className='flex items-start gap-4'>
                         {icon && <Icon className='h-12 w-12 shrink-0' />}
                         {image && (
                             <Image
@@ -116,7 +116,6 @@ const Project = ({
                     {tags && (
                         <ul className='mt-2 flex flex-wrap gap-1'>
                             {tags.map((tag, idx) => {
-                                const Icon = Icons[tag.icon]
                                 return (
                                     <li key={idx}>
                                         <Badge variant={'outline'}>
