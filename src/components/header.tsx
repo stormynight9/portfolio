@@ -1,7 +1,6 @@
 'use client'
 
 import { Icons } from '@/components/icons'
-import { ModeToggle } from '@/components/mode-toggle'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { buttonVariants } from '@/components/ui/button'
 import {
@@ -26,7 +25,6 @@ const Header = () => {
 
     useEffect(() => {
         if (copiedEmail) {
-            setEmailTooltipOpen(true)
             const timer = setTimeout(() => {
                 setEmailTooltipOpen(false)
             }, 2500)
@@ -63,6 +61,7 @@ const Header = () => {
                                 width={80}
                                 height={80}
                                 priority={true}
+                                className='object-cover'
                             />
                         </AvatarImage>
                         <AvatarFallback>
@@ -76,7 +75,6 @@ const Header = () => {
                         </p>
                     </div>
                 </div>
-                <ModeToggle />
             </div>
             <div className='flex items-center gap-2'>
                 <TooltipProvider delayDuration={70}>
