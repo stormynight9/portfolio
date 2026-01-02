@@ -1,4 +1,3 @@
-import { ThemeProvider } from '@/components/theme-provider'
 import { CONFIG } from '@/config'
 import { cn } from '@/lib/utils'
 import { HighlightInit } from '@highlight-run/next/client'
@@ -42,7 +41,7 @@ export default function RootLayout({
                     }}
                 />
             )}
-            <html lang='en' suppressHydrationWarning>
+            <html lang='en'>
                 <head>
                     <meta
                         name='google-site-verification'
@@ -51,7 +50,7 @@ export default function RootLayout({
                 </head>
                 <body
                     className={cn(
-                        'bg-background min-h-screen from-[#43434330] via-[#32323230] via-25% font-sans antialiased dark:bg-linear-to-b',
+                        'bg-background dark min-h-screen font-sans antialiased',
                         fontSans.variable
                     )}
                 >
@@ -59,17 +58,10 @@ export default function RootLayout({
                         <GoogleAnalytics gaId='G-32FLEBL3F6' />
                     )}
                     <Analytics />
-                    <ThemeProvider
-                        attribute='class'
-                        defaultTheme='dark'
-                        enableSystem
-                        disableTransitionOnChange
-                    >
-                        <main className='mx-auto max-w-3xl py-4 md:pt-10'>
-                            {children}
-                            <Contact />
-                        </main>
-                    </ThemeProvider>
+                    <main className='mx-auto max-w-3xl py-4 md:pt-10'>
+                        {children}
+                        <Contact />
+                    </main>
                 </body>
             </html>
         </>

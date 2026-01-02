@@ -1,4 +1,3 @@
-import { ModeToggle } from '@/components/mode-toggle'
 import Project from '@/components/project'
 import {
     Breadcrumb,
@@ -18,7 +17,7 @@ export const metadata = {
 const Projects = () => {
     return (
         <div>
-            <div className='flex animate-slide-from-down-and-fade-1 items-start justify-between'>
+            <div className='animate-slide-from-down-and-fade-1 flex items-start justify-between'>
                 <Breadcrumb className='mb-4 px-4'>
                     <BreadcrumbList>
                         <BreadcrumbItem>
@@ -32,7 +31,6 @@ const Projects = () => {
                         </BreadcrumbItem>
                     </BreadcrumbList>
                 </Breadcrumb>
-                <ModeToggle />
             </div>
             <h1 className='animate-slide-from-down-and-fade-2 scroll-m-20 px-4 text-4xl font-bold tracking-tight'>
                 All Projects

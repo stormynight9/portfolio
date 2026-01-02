@@ -1,45 +1,67 @@
-import { ContributionGraphClient } from '@/components/contribution-graph-client'
-import type { Activity } from '@/components/kibo-ui/contribution-graph'
+import { GitHubContributionsClient } from '@/components/github-contributions-client'
 import { CONFIG } from '@/config'
 import { unstable_cache } from 'next/cache'
+import type { Activity } from 'react-activity-calendar'
 
-type ContributionResponse = {
+type ApiResponse = {
     total: Record<string, number>
     contributions: Array<{
         date: string
         count: number
-        level: number
+        level: 0 | 1 | 2 | 3 | 4
     }>
 }
 
-const getCachedContributions = unstable_cache(
-    async () => {
-        const url = new URL(
-            `/v4/${CONFIG.githubUsername}`,
-            'https://github-contributions-api.jogruber.de'
-        )
-        const response = await fetch(url)
-        const data = (await response.json()) as ContributionResponse
-        const total = data.total[new Date().getFullYear()]
+type ApiErrorResponse = {
+    error: string
+}
 
-        return { contributions: data.contributions, total }
+const getCachedContributions = unstable_cache(
+    async (username: string, year: string | number = 'last') => {
+        const apiUrl = 'https://github-contributions-api.jogruber.de/v4/'
+        const response = await fetch(`${apiUrl}${username}?y=${String(year)}`, {
+            next: { revalidate: 60 * 60 }, // Cache for 1 hour
+        })
+
+        if (!response.ok) {
+            const errorData = (await response.json()) as ApiErrorResponse
+            throw new Error(
+                `Fetching GitHub contribution data for "${username}" failed: ${errorData.error}`
+            )
+        }
+
+        const data = (await response.json()) as ApiResponse
+        return data
     },
     ['github-contributions'],
-    { revalidate: 60 * 60 * 24 }
+    { revalidate: 60 * 60 } // Revalidate every hour
 )
 
 const GitHubContributions = async () => {
-    const { contributions, total } = await getCachedContributions()
+    const year = 'last' // Show last year by default
+    let data: ApiResponse | null = null
+    let error: Error | null = null
 
-    // Filter contributions to show only the current year
-    const currentYear = new Date().getFullYear()
-    const yearContributions: Activity[] = contributions.filter(
-        (c) => new Date(c.date).getFullYear() === currentYear
-    )
-
-    if (yearContributions.length === 0) {
-        return null
+    try {
+        data = await getCachedContributions(CONFIG.githubUsername, year)
+    } catch (err) {
+        error = err instanceof Error ? err : new Error('Unknown error')
+        console.error('Failed to fetch GitHub contributions:', error)
     }
+
+    // Transform API response to react-activity-calendar format
+    const activities: Activity[] = data
+        ? data.contributions.map((contribution) => ({
+              date: contribution.date,
+              count: contribution.count,
+              level: contribution.level,
+          }))
+        : []
+
+    const currentYear = new Date().getFullYear()
+    const total = data
+        ? data.total[String(currentYear)] || data.total.lastYear || 0
+        : 0
 
     return (
         <div className='animate-slide-from-down-and-fade-2 space-y-4 px-4'>
@@ -51,10 +73,15 @@ const GitHubContributions = async () => {
                 </p>
             </div>
 
-            <ContributionGraphClient
-                data={yearContributions}
-                totalCount={total}
-            />
+            {error ? (
+                <p className='text-muted-foreground text-sm'>
+                    Unable to load contribution data at this time.
+                </p>
+            ) : (
+                <div className='flex overflow-x-auto'>
+                    <GitHubContributionsClient data={activities} year={year} />
+                </div>
+            )}
         </div>
     )
 }

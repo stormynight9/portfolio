@@ -60,7 +60,6 @@ const Contact = () => {
                                         className={cn(
                                             buttonVariants({
                                                 variant: 'ghost',
-                                                size: 'icon-sm',
                                             })
                                         )}
                                     >
