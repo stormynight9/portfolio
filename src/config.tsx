@@ -215,21 +215,21 @@ export const CONFIG: Config = {
             featured: true,
             github: 'https://github.com/stormynight9/purng',
         },
-        {
-            name: 'gson-image-labelizer',
-            icon: 'gsonImageLabelizer',
-            description:
-                'A tool that helps you label images and save them in local storage.',
-            url: 'https://gson.nader.run/',
-            tags: [
-                { name: 'Next.js', icon: 'next' },
-                { name: 'TypeScript', icon: 'typescript' },
-                { name: 'Tailwind CSS', icon: 'tailwindcss' },
-                { name: 'shadcn/ui', icon: 'shadcn' },
-            ],
-            featured: false,
-            github: 'https://github.com/stormynight9/gson-image-labelizer',
-        },
+        // {
+        //     name: 'gson-image-labelizer',
+        //     icon: 'gsonImageLabelizer',
+        //     description:
+        //         'A tool that helps you label images and save them in local storage.',
+        //     url: 'https://gson.nader.run/',
+        //     tags: [
+        //         { name: 'Next.js', icon: 'next' },
+        //         { name: 'TypeScript', icon: 'typescript' },
+        //         { name: 'Tailwind CSS', icon: 'tailwindcss' },
+        //         { name: 'shadcn/ui', icon: 'shadcn' },
+        //     ],
+        //     featured: false,
+        //     github: 'https://github.com/stormynight9/gson-image-labelizer',
+        // },
         {
             name: 'Ranmovanigen',
             image: '/images/ranmovanigen.png',
