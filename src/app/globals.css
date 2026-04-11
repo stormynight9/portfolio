@@ -114,11 +114,47 @@
     --sidebar-ring: oklch(0.556 0 0);
 }
 
+@utility font-heading {
+    font-family:
+        var(--font-heading), var(--font-sans), ui-sans-serif, system-ui,
+        sans-serif;
+}
+
 @layer base {
     * {
         @apply border-border outline-ring/50;
     }
     body {
         @apply bg-background text-foreground;
+    }
+
+    /* Low specificity so component utilities (e.g. text-4xl) still win. */
+    :where(h1) {
+        font-family:
+            var(--font-heading), var(--font-sans), ui-sans-serif, system-ui,
+            sans-serif;
+        font-size: clamp(1.375rem, 1.2rem + 0.85vw, 1.875rem);
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        line-height: 1.15;
+    }
+
+    :where(h2) {
+        font-family:
+            var(--font-heading), var(--font-sans), ui-sans-serif, system-ui,
+            sans-serif;
+        font-size: clamp(1.0625rem, 1rem + 0.28vw, 1.25rem);
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        line-height: 1.25;
+    }
+
+    :where(h3) {
+        font-family:
+            var(--font-heading), var(--font-sans), ui-sans-serif, system-ui,
+            sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+        line-height: 1.25;
     }
 }

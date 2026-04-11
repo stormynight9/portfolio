@@ -13,22 +13,23 @@ import {
 const Contact = () => {
     return (
         <footer className='mt-12 px-4 pb-20'>
-            <h2 className='font-semibold'>Get in touch</h2>
-            <p className='text-muted-foreground leading-6'>
+            <h2>Get in touch</h2>
+            <p className='text-muted-foreground max-w-[65ch] leading-relaxed'>
                 Feel free to reach out if you want to collaborate on a project,
                 have a question, or just want to connect.
             </p>
             <div className='mt-6 flex flex-col items-center justify-center gap-6'>
                 <TooltipProvider delayDuration={70}>
                     <div className='flex items-center justify-center gap-6'>
-                        {CONFIG.socials.map((social, idx) => {
+                        {CONFIG.socials.map((social) => {
                             const Icon = Icons[social.icon]
                             return (
-                                <Tooltip key={idx}>
+                                <Tooltip key={social.name}>
                                     <TooltipTrigger asChild>
                                         <Link
                                             href={social.url}
                                             target='_blank'
+                                            rel='noopener noreferrer'
                                             aria-label={social.name}
                                             className={cn(
                                                 buttonVariants({
@@ -55,8 +56,10 @@ const Contact = () => {
                             <Tooltip>
                                 <TooltipTrigger asChild>
                                     <Link
-                                        href={'https://cal.com/naderferjani/15'}
+                                        href={CONFIG.calendarLink}
                                         target='_blank'
+                                        rel='noopener noreferrer'
+                                        aria-label='Book a call'
                                         className={cn(
                                             buttonVariants({
                                                 variant: 'ghost',

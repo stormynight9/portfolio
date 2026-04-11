@@ -34,12 +34,12 @@ const Projects = () => {
                     </BreadcrumbList>
                 </Breadcrumb>
             </div>
-            <h1 className='animate-slide-from-down-and-fade-2 scroll-m-20 px-4 text-4xl font-bold tracking-tight'>
+            <h1 className='animate-slide-from-down-and-fade-2 scroll-m-20 px-4 text-4xl font-semibold tracking-tight'>
                 All Projects
             </h1>
             <div className='animate-slide-from-down-and-fade-3 flex flex-col gap-7'>
                 {CONFIG.projects.map((project, idx, array) => (
-                    <React.Fragment key={idx}>
+                    <React.Fragment key={project.url}>
                         <Project
                             name={project.name}
                             icon={project.icon}

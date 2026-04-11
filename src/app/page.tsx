@@ -14,14 +14,14 @@ export default function Home() {
         <div className='flex flex-col gap-12'>
             <Header />
             <div className='animate-slide-from-down-and-fade-2 space-y-2 px-4'>
-                <h2 className='font-semibold'>About me</h2>
-                <div className='text-muted-foreground space-y-3 leading-6'>
+                <h2>About me</h2>
+                <div className='text-muted-foreground max-w-[65ch] space-y-3 leading-relaxed'>
                     {CONFIG.description}
                 </div>
             </div>
             <div className='animate-slide-from-down-and-fade-3 flex flex-col gap-7'>
                 <div className='-mb-4 flex items-center justify-between gap-4 px-4'>
-                    <h2 className='font-semibold'>Projects I worked on</h2>
+                    <h2>Projects I worked on</h2>
                     <Button
                         asChild
                         className='text-muted-foreground hover:text-foreground shrink-0 underline'
@@ -36,7 +36,7 @@ export default function Home() {
                 {CONFIG.projects
                     .filter((project) => project.featured)
                     .map((project, idx, array) => (
-                        <React.Fragment key={idx}>
+                        <React.Fragment key={project.url}>
                             <Project
                                 name={project.name}
                                 icon={project.icon}

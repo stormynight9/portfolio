@@ -123,6 +123,7 @@ const Project = ({
                                                 <Link
                                                     href={github}
                                                     target='_blank'
+                                                    rel='noopener noreferrer'
                                                     aria-label='Github'
                                                 >
                                                     <Icons.github className='size-4' />
@@ -145,6 +146,7 @@ const Project = ({
                                             <Link
                                                 href={url}
                                                 target='_blank'
+                                                rel='noopener noreferrer'
                                                 aria-label='Visit Website'
                                             >
                                                 <Icons.externalLink className='size-4' />
@@ -163,9 +165,9 @@ const Project = ({
                 <div>
                     {tags && (
                         <ul className='mt-2 flex flex-wrap gap-1'>
-                            {tags.map((tag, idx) => {
+                            {tags.map((tag) => {
                                 return (
-                                    <li key={idx}>
+                                    <li key={tag.name}>
                                         <Badge variant={'outline'}>
                                             {tag.name}
                                         </Badge>
@@ -176,8 +178,8 @@ const Project = ({
                     )}
                 </div>
                 {testimonial && (
-                    <blockquote className='text-muted-foreground border-l-2 pl-6 text-sm italic'>
-                        <ReadMore text={testimonial} id='d' />
+                    <blockquote className='text-muted-foreground max-w-[65ch] border-l border-border pl-5 text-sm leading-relaxed italic'>
+                        <ReadMore text={testimonial} />
                     </blockquote>
                 )}
             </div>

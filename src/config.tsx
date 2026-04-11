@@ -85,6 +85,7 @@ export const CONFIG: Config = {
                 <a
                     href='https://hi-interns.com/'
                     target='_blank'
+                    rel='noopener noreferrer'
                     className='text-foreground decoration-muted-foreground font-medium whitespace-nowrap underline underline-offset-2'
                 >
                     Hi Interns
@@ -100,6 +101,7 @@ export const CONFIG: Config = {
                 <a
                     href='https://www.upwork.com/freelancers/~0108a6d64ff5b64440'
                     target='_blank'
+                    rel='noopener noreferrer'
                     className='text-foreground decoration-muted-foreground font-medium whitespace-nowrap underline underline-offset-2'
                 >
                     Upwork
@@ -258,6 +260,7 @@ export const CONFIG: Config = {
                         <a
                             href='https://github.com/stormynight9/clerk-shadcn-theme/issues?q='
                             target='_blank'
+                            rel='noopener noreferrer'
                             className='deco text-foreground decoration-muted-foreground font-medium whitespace-nowrap underline underline-offset-2'
                         >
                             issue
@@ -267,6 +270,7 @@ export const CONFIG: Config = {
                         <a
                             href='https://github.com/stormynight9/clerk-shadcn-theme/pulls?q='
                             target='_blank'
+                            rel='noopener noreferrer'
                             className='deco text-foreground decoration-muted-foreground font-medium whitespace-nowrap underline underline-offset-2'
                         >
                             PR

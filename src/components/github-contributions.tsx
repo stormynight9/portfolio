@@ -46,7 +46,6 @@ const GitHubContributions = async () => {
         data = await getCachedContributions(CONFIG.githubUsername, year)
     } catch (err) {
         error = err instanceof Error ? err : new Error('Unknown error')
-        console.error('Failed to fetch GitHub contributions:', error)
     }
 
     // Transform API response to react-activity-calendar format
@@ -66,8 +65,8 @@ const GitHubContributions = async () => {
     return (
         <div className='animate-slide-from-down-and-fade-2 space-y-4 px-4'>
             <div className='space-y-2'>
-                <h2 className='font-semibold'>GitHub Activity</h2>
-                <p className='text-muted-foreground'>
+                <h2>GitHub Activity</h2>
+                <p className='text-muted-foreground max-w-[65ch] leading-relaxed'>
                     My contribution graph from GitHub, showing daily coding
                     activity throughout the year.
                 </p>
