@@ -15,9 +15,9 @@ export default function Home() {
             <Header />
             <div className='animate-slide-from-down-and-fade-2 space-y-2 px-4'>
                 <h2 className='font-semibold'>About me</h2>
-                <p className='text-muted-foreground leading-6'>
+                <div className='text-muted-foreground space-y-3 leading-6'>
                     {CONFIG.description}
-                </p>
+                </div>
             </div>
             <div className='animate-slide-from-down-and-fade-3 flex flex-col gap-7'>
                 <h2 className='-mb-4 px-4 font-semibold'>Featured Projects</h2>
@@ -34,6 +34,7 @@ export default function Home() {
                                 tags={project.tags}
                                 testimonial={project.testimonial}
                                 github={project.github}
+                                nameBadges={project.nameBadges}
                             />
                             {idx < array.length - 1 && (
                                 <Separator className='mx-auto max-w-96' />

@@ -13,9 +13,25 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
+/** Host (+ optional path) for use as the visible project title. */
+function formatUrlForTitle(url: string): string {
+    try {
+        const u = new URL(url)
+        const host = u.hostname.replace(/^www\./i, '')
+        const path =
+            u.pathname && u.pathname !== '/'
+                ? u.pathname.replace(/\/$/, '')
+                : ''
+        return path ? `${host}${path}` : host
+    } catch {
+        return url
+    }
+}
+
 interface ProjectProps {
     name: string
     icon?: keyof typeof Icons
+    imageClasses?: string
     description: string
     image?: string
     url: string
@@ -25,17 +41,20 @@ interface ProjectProps {
     }[]
     testimonial?: string
     github?: string
+    nameBadges?: string[]
 }
 
 const Project = ({
     name,
     icon,
+    imageClasses,
     description,
     image,
     url,
     tags,
     testimonial,
     github,
+    nameBadges,
 }: ProjectProps) => {
     const Icon = Icons[icon!]
     return (
@@ -43,18 +62,47 @@ const Project = ({
             <div className='flex flex-col gap-2'>
                 <div className='flex items-start justify-between'>
                     <div className='flex items-start gap-4'>
-                        {icon && <Icon className='h-12 w-12 shrink-0' />}
+                        {icon && (
+                            <Icon
+                                className={`h-12 w-12 shrink-0 ${imageClasses}`}
+                            />
+                        )}
                         {image && (
                             <Image
                                 src={image}
                                 width={64}
                                 height={64}
-                                alt='fds'
-                                className='h-12 w-auto shrink-0'
+                                alt={name}
+                                className={`h-12 w-auto shrink-0 ${imageClasses}`}
                             />
                         )}
-                        <div>
-                            <h3>{name}</h3>
+                        <div className='flex min-w-0 flex-col gap-1'>
+                            <div className='flex flex-wrap items-center gap-2'>
+                                <h3 className='shrink-0'>
+                                    {url ? (
+                                        <Link
+                                            href={url}
+                                            target='_blank'
+                                            rel='noopener noreferrer'
+                                            title={name}
+                                            className='text-foreground decoration-muted-foreground font-semibold no-underline underline-offset-2 hover:underline'
+                                        >
+                                            {formatUrlForTitle(url)}
+                                        </Link>
+                                    ) : (
+                                        name
+                                    )}
+                                </h3>
+                                {nameBadges?.map((label) => (
+                                    <Badge
+                                        key={label}
+                                        variant='secondary'
+                                        className='font-normal'
+                                    >
+                                        {label}
+                                    </Badge>
+                                ))}
+                            </div>
                             <p className='text-muted-foreground text-sm'>
                                 {description}
                             </p>

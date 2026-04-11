@@ -47,6 +47,7 @@ const Projects = () => {
                         tags={project.tags}
                         testimonial={project.testimonial}
                         github={project.github}
+                        nameBadges={project.nameBadges}
                     />
                 ))}
             </div>
