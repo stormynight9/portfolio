@@ -3,14 +3,23 @@ import { cn } from '@/lib/utils'
 import { HighlightInit } from '@highlight-run/next/client'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
-import { Inter as FontSans } from 'next/font/google'
+import { Onest, Sora } from 'next/font/google'
 import './globals.css'
 import Contact from '@/components/contact'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
-const fontSans = FontSans({
+/** Body / UI — geometric, readable, not Inter. */
+const fontSans = Onest({
     subsets: ['latin'],
     variable: '--font-sans',
+    weight: ['400', '500', '600'],
+})
+
+/** Section titles & display — slightly tighter, hiring-manager scan. */
+const fontHeading = Sora({
+    subsets: ['latin'],
+    variable: '--font-heading',
+    weight: ['500', '600', '700'],
 })
 
 export const metadata: Metadata = {
@@ -50,8 +59,9 @@ export default function RootLayout({
                 </head>
                 <body
                     className={cn(
-                        'bg-background dark min-h-screen font-sans antialiased',
-                        fontSans.variable
+                        'bg-background dark min-h-screen font-sans text-base leading-relaxed antialiased',
+                        fontSans.variable,
+                        fontHeading.variable
                     )}
                 >
                     {process.env.NODE_ENV === 'production' && (

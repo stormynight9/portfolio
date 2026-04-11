@@ -72,6 +72,7 @@ export const StarsChart = ({
                                         <Link
                                             href={link}
                                             target='_blank'
+                                            rel='noopener noreferrer'
                                             aria-label='Visit Repository'
                                         >
                                             <Icons.externalLink className='size-4' />

@@ -1,14 +1,15 @@
 'use client'
 
-import { useState, type KeyboardEvent } from 'react'
+import { cn } from '@/lib/utils'
+import { useId, useState, type KeyboardEvent } from 'react'
 
 interface ReadMoreProps {
-    id: string
     text: string
     amountOfWords?: number
 }
 
-export const ReadMore = ({ id, text, amountOfWords = 36 }: ReadMoreProps) => {
+export const ReadMore = ({ text, amountOfWords = 36 }: ReadMoreProps) => {
+    const contentId = useId()
     const [isExpanded, setIsExpanded] = useState(false)
     const splittedText = text.split(' ')
     const itCanOverflow = splittedText.length > amountOfWords
@@ -24,13 +25,13 @@ export const ReadMore = ({ id, text, amountOfWords = 36 }: ReadMoreProps) => {
     }
 
     return (
-        <p id={id}>
+        <p id={contentId}>
             {beginText}
             {itCanOverflow && (
                 <>
                     {!isExpanded && <span>...</span>}
                     <span
-                        className={`${!isExpanded && 'hidden'}`}
+                        className={cn(!isExpanded && 'hidden')}
                         aria-hidden={!isExpanded}
                     >
                         {' '}
@@ -41,7 +42,7 @@ export const ReadMore = ({ id, text, amountOfWords = 36 }: ReadMoreProps) => {
                         role='button'
                         tabIndex={0}
                         aria-expanded={isExpanded}
-                        aria-controls={id}
+                        aria-controls={contentId}
                         onKeyDown={handleKeyboard}
                         onClick={() => setIsExpanded(!isExpanded)}
                     >

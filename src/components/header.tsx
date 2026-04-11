@@ -44,8 +44,8 @@ const Header = () => {
             await navigator.clipboard.writeText(emailAddress)
             setCopiedEmail(true)
             setEmailTooltipOpen(true)
-        } catch (err) {
-            console.error('Failed to copy email:', err)
+        } catch {
+            /* clipboard API unavailable or denied */
         }
     }
 
@@ -69,8 +69,8 @@ const Header = () => {
                         </AvatarFallback>
                     </Avatar>
                     <div>
-                        <h1 className='font-semibold'>{CONFIG.name}</h1>
-                        <p className='text-muted-foreground mt-0.5 text-sm'>
+                        <h1>{CONFIG.name}</h1>
+                        <p className='text-muted-foreground mt-0.5 text-sm leading-snug'>
                             {CONFIG.title}
                         </p>
                     </div>
@@ -78,7 +78,7 @@ const Header = () => {
             </div>
             <div className='flex items-center gap-2'>
                 <TooltipProvider delayDuration={70}>
-                    {CONFIG.socials.map((social, idx) => {
+                    {CONFIG.socials.map((social) => {
                         const Icon = Icons[social.icon]
                         const isEmail = social.icon === 'email'
                         const showCheck = isEmail && copiedEmail
@@ -86,7 +86,7 @@ const Header = () => {
 
                         return (
                             <Tooltip
-                                key={idx}
+                                key={social.name}
                                 open={
                                     isEmail && copiedEmail
                                         ? emailTooltipOpen
@@ -127,6 +127,7 @@ const Header = () => {
                                         <Link
                                             href={social.url}
                                             target='_blank'
+                                            rel='noopener noreferrer'
                                             aria-label={social.name}
                                             className={cn(
                                                 buttonVariants({
@@ -151,8 +152,9 @@ const Header = () => {
                         <Tooltip>
                             <TooltipTrigger asChild>
                                 <Link
-                                    href={'https://cal.com/naderferjani/15'}
+                                    href={CONFIG.calendarLink}
                                     target='_blank'
+                                    rel='noopener noreferrer'
                                     aria-label='Book a call'
                                     className={cn(
                                         buttonVariants({

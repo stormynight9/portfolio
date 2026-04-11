@@ -18,6 +18,7 @@ type Config = {
     projects: {
         name: string
         icon?: keyof typeof Icons
+        imageClasses?: string
         image?: string
         description: string
         url: string
@@ -28,6 +29,8 @@ type Config = {
         github?: string
         featured: boolean
         testimonial?: string
+        /** Short labels shown as badges next to the project name (e.g. usage stats). */
+        nameBadges?: string[]
     }[]
     openSource?: {
         description?: string
@@ -76,33 +79,55 @@ export const CONFIG: Config = {
     calendarLink: 'https://cal.com/naderferjani/15',
     description: (
         <>
-            Hi, I&apos;m Nader from Tunisia. I work as a part-time Full-stack
-            Developer at{' '}
-            <a
-                href='https://hi-interns.com/'
-                target='_blank'
-                className='text-foreground decoration-muted-foreground font-medium whitespace-nowrap underline underline-offset-2'
-            >
-                Hi Interns
-                <Icons.arrowUpRight className='inline-block size-4' />
-            </a>
-            . I love building websites with good UI/UX, and I&apos;m also
-            passionate about new technologies, open-source software, and
-            contributing to the community.
+            <p>
+                Hi, I&apos;m Nader. I work part-time as a full-stack developer
+                at{' '}
+                <a
+                    href='https://hi-interns.com/'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-foreground decoration-muted-foreground font-medium whitespace-nowrap underline underline-offset-2'
+                >
+                    Hi Interns
+                    <Icons.arrowUpRight className='inline-block size-4' />
+                </a>
+                , shipping product with Next.js, Astro, React, and Tailwind at
+                scale. I always try to find what&apos;s stopping users from
+                converting, and keep developer experience in good shape while we
+                iterate.
+            </p>
+            <p>
+                I&apos;ve freelanced on{' '}
+                <a
+                    href='https://www.upwork.com/freelancers/~0108a6d64ff5b64440'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-foreground decoration-muted-foreground font-medium whitespace-nowrap underline underline-offset-2'
+                >
+                    Upwork
+                    <Icons.arrowUpRight className='inline-block size-4' />
+                </a>{' '}
+                for about four years, with a 100% job success rate and five-star
+                reviews. Several clients from year one still ping me for work. I
+                lean on AI a lot for speed and drafts, but architecture, edge
+                cases, and actually shipping still land on me.
+            </p>
         </>
     ),
-    descriptionRaw: `Hi, I'm Nader from Tunisia.  I work as a part-time Full-stack Developer at Hi Interns. I love building websites with good UI/UX, and I'm also passionate about new technologies, open-source software, and contributing to the community.`,
+    descriptionRaw: `Full-stack developer. Part-time at Hi Interns (Next.js, Astro, Tailwind). Focus on conversion blockers and solid DX. Upwork: 100% job success, five-star reviews, ~4 years. Pragmatic about AI; owns the hard parts.`,
     projects: [
         {
             name: 'Hi Interns',
             image: '/images/hi-interns.png',
+            nameBadges: ['+10k accounts'],
             description:
-                'A platform that connects companies with students who are looking for internships.',
+                'Connects students, employers, and schools around internships, alternance, and first jobs, and includes an ATS-friendly CV builder, AI assistance through Hi Agent, mobility prep, and career consultants.',
             url: 'https://hi-interns.com/',
             tags: [
-                { name: 'Astro', icon: 'astro' },
                 { name: 'Next.js', icon: 'next' },
                 { name: 'Supabase' },
+                { name: 'Posthog' },
+                { name: 'Payload CMS' },
                 { name: 'TypeScript', icon: 'typescript' },
                 { name: 'Tailwind CSS', icon: 'tailwindcss' },
                 { name: 'shadcn/ui', icon: 'shadcn' },
@@ -110,6 +135,41 @@ export const CONFIG: Config = {
             ],
             featured: true,
         },
+        {
+            name: 'Stormio',
+            image: '/images/stormio.png',
+            nameBadges: ['+4k players / month'],
+            description:
+                'Taboo-style word guessing on Discord: one player gives clues, the rest guess the word without saying the taboo terms.',
+            url: 'https://stormio.app/',
+            tags: [
+                { name: 'Next.js', icon: 'next' },
+                { name: 'Discord.js' },
+                { name: 'Convex' },
+                { name: 'Posthog' },
+                { name: 'TypeScript', icon: 'typescript' },
+                { name: 'Tailwind CSS', icon: 'tailwindcss' },
+                { name: 'shadcn/ui', icon: 'shadcn' },
+            ],
+            featured: true,
+        },
+        {
+            name: 'Shadcn Blocks',
+            icon: 'shadcnblocks',
+            imageClasses: 'invert',
+            nameBadges: ['+300 blocks'],
+            description:
+                'A library of copy-paste UI blocks for shadcn/ui. I contributed 300+ sections and components to the project.',
+            url: 'https://shadcnblocks.com/',
+            tags: [
+                { name: 'Next.js', icon: 'next' },
+                { name: 'TypeScript', icon: 'typescript' },
+                { name: 'Tailwind CSS', icon: 'tailwindcss' },
+                { name: 'shadcn/ui', icon: 'shadcn' },
+            ],
+            featured: true,
+        },
+
         {
             name: 'Cosmic Coop',
             image: '/images/cosmic-coop.webp',
@@ -121,7 +181,7 @@ export const CONFIG: Config = {
                 { name: 'Preact', icon: 'preact' },
                 { name: 'Tailwind CSS', icon: 'tailwindcss' },
             ],
-            featured: true,
+            featured: false,
             testimonial:
                 'Nader was absolutely amazing with the work he did for me. He truly went above and beyond and was super clear, efficient, and very knowledgeable. He thought about pretty much everything related to the project and even thought outside the box to create solutions to any issues. Truly a 10/10 hire. One of my best hired on Upwork. Will definitely be rehiring on future projects.',
         },
@@ -137,7 +197,7 @@ export const CONFIG: Config = {
                 { name: 'Tailwind CSS', icon: 'tailwindcss' },
                 { name: 'shadcn/ui', icon: 'shadcn' },
             ],
-            featured: true,
+            featured: false,
             github: 'https://github.com/stormynight9/saasstellar',
         },
         {
@@ -149,29 +209,29 @@ export const CONFIG: Config = {
             tags: [
                 { name: 'Next.js', icon: 'next' },
                 { name: 'TypeScript', icon: 'typescript' },
+                { name: 'Convex' },
                 { name: 'Tailwind CSS', icon: 'tailwindcss' },
                 { name: 'shadcn/ui', icon: 'shadcn' },
                 { name: 'Drizzle', icon: 'drizzle' },
-                { name: 'Neon', icon: 'neon' },
             ],
-            featured: false,
+            featured: true,
             github: 'https://github.com/stormynight9/purng',
         },
-        {
-            name: 'gson-image-labelizer',
-            icon: 'gsonImageLabelizer',
-            description:
-                'A tool that helps you label images and save them in local storage.',
-            url: 'https://gson.nader.run/',
-            tags: [
-                { name: 'Next.js', icon: 'next' },
-                { name: 'TypeScript', icon: 'typescript' },
-                { name: 'Tailwind CSS', icon: 'tailwindcss' },
-                { name: 'shadcn/ui', icon: 'shadcn' },
-            ],
-            featured: false,
-            github: 'https://github.com/stormynight9/gson-image-labelizer',
-        },
+        // {
+        //     name: 'gson-image-labelizer',
+        //     icon: 'gsonImageLabelizer',
+        //     description:
+        //         'A tool that helps you label images and save them in local storage.',
+        //     url: 'https://gson.nader.run/',
+        //     tags: [
+        //         { name: 'Next.js', icon: 'next' },
+        //         { name: 'TypeScript', icon: 'typescript' },
+        //         { name: 'Tailwind CSS', icon: 'tailwindcss' },
+        //         { name: 'shadcn/ui', icon: 'shadcn' },
+        //     ],
+        //     featured: false,
+        //     github: 'https://github.com/stormynight9/gson-image-labelizer',
+        // },
         {
             name: 'Ranmovanigen',
             image: '/images/ranmovanigen.png',
@@ -200,6 +260,7 @@ export const CONFIG: Config = {
                         <a
                             href='https://github.com/stormynight9/clerk-shadcn-theme/issues?q='
                             target='_blank'
+                            rel='noopener noreferrer'
                             className='deco text-foreground decoration-muted-foreground font-medium whitespace-nowrap underline underline-offset-2'
                         >
                             issue
@@ -209,6 +270,7 @@ export const CONFIG: Config = {
                         <a
                             href='https://github.com/stormynight9/clerk-shadcn-theme/pulls?q='
                             target='_blank'
+                            rel='noopener noreferrer'
                             className='deco text-foreground decoration-muted-foreground font-medium whitespace-nowrap underline underline-offset-2'
                         >
                             PR

@@ -104,14 +104,14 @@ const OpenSource = async () => {
 
     return (
         <div className='animate-slide-from-down-and-fade-2 space-y-2 px-4'>
-            <h2 className='font-semibold'>Open source journey</h2>
-            <p className='text-muted-foreground'>
+            <h2>Open source journey</h2>
+            <p className='text-muted-foreground max-w-[65ch] leading-relaxed'>
                 {CONFIG.openSource?.description}
             </p>
 
             <div className='divide-y divide-solid'>
-                {projectsData.map((project, idx) => (
-                    <div key={idx} className='py-4'>
+                {projectsData.map((project) => (
+                    <div key={project.repository} className='py-4'>
                         <StarsChart
                             data={project.chartData}
                             title={project.title}

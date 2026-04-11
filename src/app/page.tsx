@@ -14,17 +14,29 @@ export default function Home() {
         <div className='flex flex-col gap-12'>
             <Header />
             <div className='animate-slide-from-down-and-fade-2 space-y-2 px-4'>
-                <h2 className='font-semibold'>About me</h2>
-                <p className='text-muted-foreground leading-6'>
+                <h2>About me</h2>
+                <div className='text-muted-foreground max-w-[65ch] space-y-3 leading-relaxed'>
                     {CONFIG.description}
-                </p>
+                </div>
             </div>
             <div className='animate-slide-from-down-and-fade-3 flex flex-col gap-7'>
-                <h2 className='-mb-4 px-4 font-semibold'>Featured Projects</h2>
+                <div className='-mb-4 flex items-center justify-between gap-4 px-4'>
+                    <h2>Projects I worked on</h2>
+                    <Button
+                        asChild
+                        className='text-muted-foreground hover:text-foreground shrink-0 underline'
+                        variant={'link'}
+                    >
+                        <Link href='/projects'>
+                            All projects
+                            <Icons.arrowUpRight />
+                        </Link>
+                    </Button>
+                </div>
                 {CONFIG.projects
                     .filter((project) => project.featured)
                     .map((project, idx, array) => (
-                        <React.Fragment key={idx}>
+                        <React.Fragment key={project.url}>
                             <Project
                                 name={project.name}
                                 icon={project.icon}
@@ -34,22 +46,25 @@ export default function Home() {
                                 tags={project.tags}
                                 testimonial={project.testimonial}
                                 github={project.github}
+                                nameBadges={project.nameBadges}
                             />
                             {idx < array.length - 1 && (
                                 <Separator className='mx-auto max-w-96' />
                             )}
                         </React.Fragment>
                     ))}
-                <Button
-                    asChild
-                    className='text-muted-foreground hover:text-foreground ml-auto items-end underline'
-                    variant={'link'}
-                >
-                    <Link href='/projects'>
-                        All projects
-                        <Icons.arrowUpRight className='inline-block size-4' />
-                    </Link>
-                </Button>
+                <div className='flex justify-center'>
+                    <Button
+                        asChild
+                        className='text-muted-foreground hover:text-foreground underline'
+                        variant={'link'}
+                    >
+                        <Link href='/projects'>
+                            More projects
+                            <Icons.arrowUpRight />
+                        </Link>
+                    </Button>
+                </div>
             </div>
 
             <OpenSource />
