@@ -41,6 +41,16 @@ type Config = {
             link: string
         }[]
     }
+    education?: {
+        institution: string
+        institutionUrl?: string
+        programs: {
+            title: string
+            durationYears: number
+            period: string
+            description: string
+        }[]
+    }
 }
 
 export const CONFIG: Config = {
@@ -247,6 +257,27 @@ export const CONFIG: Config = {
             github: 'https://github.com/stormynight9/random-anime-movie-generator',
         },
     ],
+    education: {
+        institution:
+            'Higher Institute of Informatics and Mathematics of Monastir (ISIMM)',
+        institutionUrl: 'https://isimm.rnu.tn/public/',
+        programs: [
+            {
+                title: "Bachelor's in Computer Science",
+                durationYears: 3,
+                period: '2019–2022',
+                description:
+                    'Core computer science fundamentals including programming, algorithms, and systems.',
+            },
+            {
+                title: 'Software Engineering',
+                durationYears: 3,
+                period: '2022–2025',
+                description:
+                    'Software design, architecture, lifecycle, and engineering practices for building reliable systems.',
+            },
+        ],
+    },
     openSource: {
         description:
             'I have contributed to various open-source projects, including Astro, TailwindCSS, shadcn/ui, and more. I also made a few open-source projects that did benefit the community.',

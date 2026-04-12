@@ -67,6 +67,49 @@ export default function Home() {
                 </div>
             </div>
 
+            {CONFIG.education && (
+                <div className='animate-slide-from-down-and-fade-2 space-y-4 px-4'>
+                    <h2>Education</h2>
+                    <p className='text-muted-foreground max-w-[65ch] leading-relaxed'>
+                        I studied at{' '}
+                        {CONFIG.education.institutionUrl ? (
+                            <a
+                                href={CONFIG.education.institutionUrl}
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='text-foreground decoration-muted-foreground font-medium underline underline-offset-2'
+                            >
+                                {CONFIG.education.institution}
+                                <Icons.arrowUpRight className='inline-block size-4' />
+                            </a>
+                        ) : (
+                            CONFIG.education.institution
+                        )}
+                        .
+                    </p>
+                    <ul className='divide-border border-border max-w-[65ch] divide-y border-y'>
+                        {CONFIG.education.programs.map((p) => (
+                            <li
+                                key={`${p.title}-${p.period}`}
+                                className='flex flex-col gap-2 py-4'
+                            >
+                                <div className='flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4'>
+                                    <span className='text-foreground font-medium'>
+                                        {p.title}
+                                    </span>
+                                    <span className='text-muted-foreground shrink-0 tabular-nums sm:text-right'>
+                                        {p.period}
+                                    </span>
+                                </div>
+                                <p className='text-muted-foreground leading-relaxed'>
+                                    {p.description}
+                                </p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+
             <OpenSource />
 
             <GitHubContributions />
