@@ -6,6 +6,7 @@ import type { Metadata } from 'next'
 import { Onest, Sora } from 'next/font/google'
 import './globals.css'
 import Contact from '@/components/contact'
+import { Separator } from '@/components/ui/separator'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 /** Body / UI — geometric, readable, not Inter. */
@@ -70,6 +71,7 @@ export default function RootLayout({
                     <Analytics />
                     <main className='mx-auto max-w-3xl py-4 md:pt-10'>
                         {children}
+                        <Separator className='my-12' />
                         <Contact />
                     </main>
                 </body>

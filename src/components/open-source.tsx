@@ -1,5 +1,7 @@
 import { StarsChart } from '@/components/stars-chart'
+import { Separator } from '@/components/ui/separator'
 import { CONFIG } from '@/config'
+import React from 'react'
 
 interface RepoDetails {
     stargazers_count: number
@@ -109,16 +111,19 @@ const OpenSource = async () => {
                 {CONFIG.openSource?.description}
             </p>
 
-            <div className='divide-y divide-solid'>
-                {projectsData.map((project) => (
-                    <div key={project.repository} className='py-4'>
+            <div className='flex flex-col gap-7'>
+                {projectsData.map((project, idx, array) => (
+                    <React.Fragment key={project.repository}>
                         <StarsChart
                             data={project.chartData}
                             title={project.title}
                             description={project.description}
                             link={project.link}
                         />
-                    </div>
+                        {idx < array.length - 1 && (
+                            <Separator className='mx-auto max-w-96' />
+                        )}
+                    </React.Fragment>
                 ))}
             </div>
         </div>
