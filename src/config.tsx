@@ -131,7 +131,7 @@ export const CONFIG: Config = {
             image: '/images/hi-interns.png',
             nameBadges: ['+15k accounts'],
             description:
-                'Connects students, employers, and schools around internships, alternance, and first jobs, and includes an ATS-friendly CV builder, AI assistance through Hi Agent, mobility prep, and career consultants.',
+                'Connects students, employers, and schools around internships, apprenticeships, and first jobs, and includes an ATS-friendly CV builder, AI assistance through Hi Agent, mobility prep, and career consultants.',
             url: 'https://hi-interns.com/',
             tags: [
                 { name: 'Next.js', icon: 'next' },
