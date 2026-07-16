@@ -129,7 +129,7 @@ export const CONFIG: Config = {
         {
             name: 'Hi Interns',
             image: '/images/hi-interns.png',
-            nameBadges: ['+10k accounts'],
+            nameBadges: ['+15k accounts'],
             description:
                 'Connects students, employers, and schools around internships, alternance, and first jobs, and includes an ATS-friendly CV builder, AI assistance through Hi Agent, mobility prep, and career consultants.',
             url: 'https://hi-interns.com/',
@@ -148,7 +148,7 @@ export const CONFIG: Config = {
         {
             name: 'Stormio',
             image: '/images/stormio.png',
-            nameBadges: ['+4k players / month'],
+            nameBadges: ['+6k players / month'],
             description:
                 'Taboo-style word guessing on Discord: one player gives clues, the rest guess the word without saying the taboo terms.',
             url: 'https://stormio.app/',
@@ -166,7 +166,6 @@ export const CONFIG: Config = {
         {
             name: 'Shadcn Blocks',
             icon: 'shadcnblocks',
-            imageClasses: 'invert',
             nameBadges: ['+300 blocks'],
             description:
                 'A library of copy-paste UI blocks for shadcn/ui. I contributed 300+ sections and components to the project.',
@@ -209,6 +208,22 @@ export const CONFIG: Config = {
             ],
             featured: false,
             github: 'https://github.com/stormynight9/saasstellar',
+        },
+        {
+            name: 'Firstplace.run',
+            image: '/images/firstplace.png',
+            imageClasses: 'invert',
+            description:
+                'Turns Google Search Console data into animated bar chart races. Watch queries, pages, countries, or devices compete over time, spot anomalies, and export frames or videos to share.',
+            url: 'https://firstplace.run/',
+            tags: [
+                { name: 'Next.js', icon: 'next' },
+                { name: 'TypeScript', icon: 'typescript' },
+                { name: 'Tailwind CSS', icon: 'tailwindcss' },
+                { name: 'shadcn/ui', icon: 'shadcn' },
+                { name: 'Google Search Console' },
+            ],
+            featured: true,
         },
         {
             name: 'Purng',

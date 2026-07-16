@@ -87,7 +87,9 @@ const Project = ({
                                             title={name}
                                             className='text-foreground decoration-muted-foreground font-semibold no-underline underline-offset-2 hover:underline'
                                         >
-                                            {formatUrlForTitle(url)}
+                                            {name.includes('.')
+                                                ? name
+                                                : formatUrlForTitle(url)}
                                         </Link>
                                     ) : (
                                         name

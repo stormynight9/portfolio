@@ -43,6 +43,7 @@ const Projects = () => {
                         <Project
                             name={project.name}
                             icon={project.icon}
+                            imageClasses={project.imageClasses}
                             description={project.description}
                             image={project.image}
                             url={project.url}
