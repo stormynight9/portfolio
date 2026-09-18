@@ -93,12 +93,12 @@ export const CONFIG: Config = {
                 Hi, I&apos;m Nader. I work part-time as a full-stack developer
                 at{' '}
                 <a
-                    href='https://hi-interns.com/'
+                    href='https://hi-talents.com/'
                     target='_blank'
                     rel='noopener noreferrer'
                     className='text-foreground decoration-muted-foreground font-medium whitespace-nowrap underline underline-offset-2'
                 >
-                    Hi Interns
+                    Hi Talents
                     <Icons.arrowUpRight className='inline-block size-4' />
                 </a>
                 , shipping product with Next.js, Astro, React, and Tailwind at
@@ -124,15 +124,15 @@ export const CONFIG: Config = {
             </p>
         </>
     ),
-    descriptionRaw: `Full-stack developer. Part-time at Hi Interns (Next.js, Astro, Tailwind). Focus on conversion blockers and solid DX. Upwork: 100% job success, five-star reviews, ~4 years. Pragmatic about AI; owns the hard parts.`,
+    descriptionRaw: `Full-stack developer. Part-time at Hi Talents (Next.js, Astro, Tailwind). Focus on conversion blockers and solid DX. Upwork: 100% job success, five-star reviews, ~4 years. Pragmatic about AI; owns the hard parts.`,
     projects: [
         {
-            name: 'Hi Interns',
-            image: '/images/hi-interns.png',
+            name: 'Hi Talents',
+            image: '/images/hi-talents.png',
             nameBadges: ['+15k accounts'],
             description:
                 'Connects students, employers, and schools around internships, apprenticeships, and first jobs, and includes an ATS-friendly CV builder, AI assistance through Hi Agent, mobility prep, and career consultants.',
-            url: 'https://hi-interns.com/',
+            url: 'https://hi-talents.com/',
             tags: [
                 { name: 'Next.js', icon: 'next' },
                 { name: 'Supabase' },
