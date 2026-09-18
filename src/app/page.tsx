@@ -105,7 +105,7 @@ export default function Home() {
                                     <GraduationCap className='size-5' />
                                 </span>
                                 <div className='min-w-0'>
-                                    <h3 className='text-foreground text-[15px] font-semibold leading-snug'>
+                                    <h3 className='text-foreground text-[15px] leading-snug font-semibold'>
                                         {CONFIG.education.institutionUrl ? (
                                             <a
                                                 href={
@@ -116,10 +116,7 @@ export default function Home() {
                                                 rel='noopener noreferrer'
                                                 className='decoration-muted-foreground underline-offset-2 hover:underline'
                                             >
-                                                {
-                                                    CONFIG.education
-                                                        .institution
-                                                }
+                                                {CONFIG.education.institution}
                                                 <Icons.arrowUpRight className='inline-block size-4' />
                                             </a>
                                         ) : (
@@ -130,7 +127,8 @@ export default function Home() {
                                         educationEnd != null && (
                                             <div className='mt-0.5 flex flex-wrap items-center gap-1.5'>
                                                 <p className='text-muted-foreground text-sm tabular-nums'>
-                                                    {educationStart}–{educationEnd}
+                                                    {educationStart}–
+                                                    {educationEnd}
                                                 </p>
                                                 <Badge
                                                     variant='secondary'
@@ -155,7 +153,7 @@ export default function Home() {
                                             aria-hidden='true'
                                             className='bg-muted-foreground absolute top-1.5 -left-[4px] z-10 size-2 rounded-full'
                                         />
-                                        <h4 className='text-foreground text-sm font-semibold leading-snug'>
+                                        <h4 className='text-foreground text-sm leading-snug font-semibold'>
                                             {p.title}
                                         </h4>
                                         <div className='mt-1.5 flex flex-wrap items-center gap-1.5'>

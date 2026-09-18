@@ -2,7 +2,6 @@ import { Icons } from '@/components/icons'
 import { ReadMore } from '@/components/read-more'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
 import {
     Tooltip,
     TooltipContent,
@@ -12,21 +11,6 @@ import {
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-
-/** Host (+ optional path) for use as the visible project title. */
-function formatUrlForTitle(url: string): string {
-    try {
-        const u = new URL(url)
-        const host = u.hostname.replace(/^www\./i, '')
-        const path =
-            u.pathname && u.pathname !== '/'
-                ? u.pathname.replace(/\/$/, '')
-                : ''
-        return path ? `${host}${path}` : host
-    } catch {
-        return url
-    }
-}
 
 interface ProjectProps {
     name: string
@@ -87,9 +71,7 @@ const Project = ({
                                             title={name}
                                             className='text-foreground decoration-muted-foreground font-semibold no-underline underline-offset-2 hover:underline'
                                         >
-                                            {name.includes('.')
-                                                ? name
-                                                : formatUrlForTitle(url)}
+                                            {name}
                                         </Link>
                                     ) : (
                                         name
@@ -180,7 +162,7 @@ const Project = ({
                     )}
                 </div>
                 {testimonial && (
-                    <blockquote className='text-muted-foreground max-w-[65ch] border-l border-border pl-5 text-sm leading-relaxed italic'>
+                    <blockquote className='text-muted-foreground border-border max-w-[65ch] border-l pl-5 text-sm leading-relaxed italic'>
                         <ReadMore text={testimonial} />
                     </blockquote>
                 )}
