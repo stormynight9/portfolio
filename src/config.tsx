@@ -278,18 +278,18 @@ export const CONFIG: Config = {
         institutionUrl: 'https://isimm.rnu.tn/public/',
         programs: [
             {
-                title: "Bachelor's in Computer Science",
-                durationYears: 3,
-                period: '2019–2022',
-                description:
-                    'Core computer science fundamentals including programming, algorithms, and systems.',
-            },
-            {
                 title: 'Software Engineering',
                 durationYears: 3,
                 period: '2022–2025',
                 description:
                     'Software design, architecture, lifecycle, and engineering practices for building reliable systems.',
+            },
+            {
+                title: "Bachelor's in Computer Science",
+                durationYears: 3,
+                period: '2019–2022',
+                description:
+                    'Core computer science fundamentals including programming, algorithms, and systems.',
             },
         ],
     },

@@ -3,9 +3,11 @@ import Header from '@/components/header'
 import { Icons } from '@/components/icons'
 import OpenSource from '@/components/open-source'
 import Project from '@/components/project'
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { CONFIG } from '@/config'
+import { GraduationCap } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
@@ -14,7 +16,21 @@ function SectionRule() {
     return <Separator className='mx-auto my-12' />
 }
 
+function yearsLabel(years: number) {
+    return `${years} ${years === 1 ? 'year' : 'years'}`
+}
+
 export default function Home() {
+    const educationYears = CONFIG.education?.programs.flatMap((p) =>
+        p.period.split('–').map(Number)
+    )
+    const educationStart = educationYears?.length
+        ? Math.min(...educationYears)
+        : undefined
+    const educationEnd = educationYears?.length
+        ? Math.max(...educationYears)
+        : undefined
+
     return (
         <div className='flex flex-col'>
             <Header />
@@ -82,51 +98,83 @@ export default function Home() {
             {CONFIG.education && (
                 <>
                     <section aria-labelledby='home-education'>
-                        <div className='animate-slide-from-down-and-fade-2 space-y-4 px-4'>
+                        <div className='animate-slide-from-down-and-fade-2 space-y-6 px-4'>
                             <h2 id='home-education'>Education</h2>
-                            <p className='text-muted-foreground max-w-[65ch] leading-relaxed'>
-                                I studied at{' '}
-                                {CONFIG.education.institutionUrl ? (
-                                    <a
-                                        href={CONFIG.education.institutionUrl}
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        className='text-foreground decoration-muted-foreground font-medium underline underline-offset-2'
-                                    >
-                                        {CONFIG.education.institution}
-                                        <Icons.arrowUpRight className='inline-block size-4' />
-                                    </a>
-                                ) : (
-                                    CONFIG.education.institution
-                                )}
-                                .
-                            </p>
-                            <div className='mt-14 flex max-w-[65ch] flex-col gap-7'>
-                                {CONFIG.education.programs.map(
-                                    (p, idx, array) => (
-                                        <React.Fragment
-                                            key={`${p.title}-${p.period}`}
-                                        >
-                                            <div className='flex flex-col gap-2'>
-                                                <div className='flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4'>
-                                                    <span className='text-foreground font-medium'>
-                                                        {p.title}
-                                                    </span>
-                                                    <span className='text-muted-foreground shrink-0 tabular-nums sm:text-right'>
-                                                        {p.period}
-                                                    </span>
-                                                </div>
-                                                <p className='text-muted-foreground leading-relaxed'>
-                                                    {p.description}
+                            <div className='flex items-start gap-3'>
+                                <span className='bg-muted flex size-10 shrink-0 items-center justify-center rounded-lg'>
+                                    <GraduationCap className='size-5' />
+                                </span>
+                                <div className='min-w-0'>
+                                    <h3 className='text-foreground text-[15px] font-semibold leading-snug'>
+                                        {CONFIG.education.institutionUrl ? (
+                                            <a
+                                                href={
+                                                    CONFIG.education
+                                                        .institutionUrl
+                                                }
+                                                target='_blank'
+                                                rel='noopener noreferrer'
+                                                className='decoration-muted-foreground underline-offset-2 hover:underline'
+                                            >
+                                                {
+                                                    CONFIG.education
+                                                        .institution
+                                                }
+                                                <Icons.arrowUpRight className='inline-block size-4' />
+                                            </a>
+                                        ) : (
+                                            CONFIG.education.institution
+                                        )}
+                                    </h3>
+                                    {educationStart != null &&
+                                        educationEnd != null && (
+                                            <div className='mt-0.5 flex flex-wrap items-center gap-1.5'>
+                                                <p className='text-muted-foreground text-sm tabular-nums'>
+                                                    {educationStart}–{educationEnd}
                                                 </p>
+                                                <Badge
+                                                    variant='secondary'
+                                                    className='font-normal'
+                                                >
+                                                    {yearsLabel(
+                                                        educationEnd -
+                                                            educationStart
+                                                    )}
+                                                </Badge>
                                             </div>
-                                            {idx < array.length - 1 && (
-                                                <Separator className='mx-auto max-w-96' />
-                                            )}
-                                        </React.Fragment>
-                                    )
-                                )}
+                                        )}
+                                </div>
                             </div>
+                            <ol className='border-border relative ml-5 space-y-6 border-l pl-0'>
+                                {CONFIG.education.programs.map((p) => (
+                                    <li
+                                        key={`${p.title}-${p.period}`}
+                                        className='relative pl-6'
+                                    >
+                                        <span
+                                            aria-hidden='true'
+                                            className='bg-muted-foreground absolute top-1.5 -left-[4px] z-10 size-2 rounded-full'
+                                        />
+                                        <h4 className='text-foreground text-sm font-semibold leading-snug'>
+                                            {p.title}
+                                        </h4>
+                                        <div className='mt-1.5 flex flex-wrap items-center gap-1.5'>
+                                            <p className='text-muted-foreground text-sm tabular-nums'>
+                                                {p.period}
+                                            </p>
+                                            <Badge
+                                                variant='secondary'
+                                                className='font-normal'
+                                            >
+                                                {yearsLabel(p.durationYears)}
+                                            </Badge>
+                                        </div>
+                                        <p className='text-muted-foreground mt-1.5 max-w-[65ch] text-sm leading-relaxed'>
+                                            {p.description}
+                                        </p>
+                                    </li>
+                                ))}
+                            </ol>
                         </div>
                     </section>
                     <SectionRule />
